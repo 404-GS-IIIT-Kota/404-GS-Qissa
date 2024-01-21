@@ -1,4 +1,3 @@
-
 # Qissa - A New Way For Equality
 
 **Qissa: A Social Media Platform for LGBTQ+ Individuals Worldwide
@@ -61,13 +60,13 @@ A variety of features and channels to cater to the diverse needs and preferences
 
 Qissa thrives on user feedback, utilizing surveys, forums, and feedback forms to understand evolving needs. The platform actively incorporates regular updates and enhancements based on user insights, ensuring its dynamic relevance. 
 
-Seamless feedback mechanisms and analytics-driven decision-making enable **Qissa** to refine user experience, enhance security, and introduce features aligned with **LGBTQ+ community** preferences.
+Seamless feedback mechanisms and analytics-driven decision-making enable **Qissa** to refine the user experience, enhance security, and introduce features aligned with **LGBTQ+ community** preferences.
 
 Transparent communication keeps users informed, fostering a collaborative journey of continuous improvement and innovation.
 
 ## WireFrames for the Project Idea
 
-![](<Screenshot from 2024-01-21 20-56-32.png>)
+![Screenshot from 2024-01-21 20-56-32](https://github.com/404-GS-IIIT-Kota/Temp/assets/124715224/1df0e2be-baed-4b48-9aae-a9725112bc2c)
 
 ## Tech Stack used
 
@@ -82,8 +81,7 @@ Transparent communication keeps users informed, fostering a collaborative journe
 - GoogleAPI
 
 ## Team 404
-
-    1. Aaryan Anil Kumar Singh
-    2. Dhairya Amrish Majmudar
-    3. Hiteshwar Kaushik
-    4. Rohan
+1. Aaryan Anil Kumar Singh
+2. Dhairya Amrish Majmudar
+3. Hiteshwar Kaushik
+4. Rohan
