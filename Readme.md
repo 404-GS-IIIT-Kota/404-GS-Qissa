@@ -1,4 +1,3 @@
-
 # Qissa - A New Way For Equality
 
 **Qissa: A Social Media Platform for LGBTQ+ Individuals Worldwide
@@ -6,15 +5,12 @@ Why Qissa?**
 
 **LGBTQ+** individuals face many challenges in their daily lives, such as discrimination, lack of legal awareness, and social isolation. Existing social media platforms may not fully address their unique needs and interests, limiting their opportunities to connect, share, and advocate for change.
 
-
 Qissa is a social media platform that aims to empower **LGBTQ+** individuals worldwide by providing them with a dedicated space to celebrate their identities, express their opinions, and access relevant information. Qissa is more than just a social media platform; it is a community of support, solidarity, and empowerment.
 What Qissa Offers?
 
+A variety of features and channels to cater to the diverse needs and preferences of LGBTQ+ individuals are offered by **Qissa**.
 
-A variety of features and channels to cater to the diverse needs and preferences of LGBTQ+ individuals are offered by **Qissa**. 
-
-
-***Some of the key features and channels are***
+**_Some of the key features and channels are_**
 
 - **Beautiful Experiences Channel:** A channel where users can share their positive moments and daily joys with other LGBTQ+ individuals. This channel aims to foster a sense of happiness and gratitude among users and celebrate their achievements and milestones.
 
@@ -30,11 +26,9 @@ A variety of features and channels to cater to the diverse needs and preferences
 
 - **Community Mapping Feature:** A feature that connects users with local LGBTQ+ communities, events, and support groups in their areas. This feature aims to help users find and join LGBTQ+ networks and activities near them and expand their social circles.
 
-
 ## How Qissa Works?
 
-
-***Qissa is designed with the following principles in mind:***
+**_Qissa is designed with the following principles in mind:_**
 
 - **User-Centric Interface**: The platform prioritizes a user-friendly and customizable interface that allows users to easily navigate and personalize their profiles and settings.
 
@@ -45,7 +39,6 @@ A variety of features and channels to cater to the diverse needs and preferences
 - **Global Accessibility**: The platform supports multiple languages and provides information in diverse languages that ensure users from different countries and backgrounds can access and enjoy the platform.
 
 ## Who Qissa Partners With?
-
 
 **Qissa** actively seeks collaborations with **LGBTQ+** organizations to enhance the platform’s credibility and impact. Some of the potential partners are:
 
@@ -59,18 +52,19 @@ A variety of features and channels to cater to the diverse needs and preferences
 
 ## How Qissa Improves?
 
-Qissa thrives on user feedback, utilizing surveys, forums, and feedback forms to understand evolving needs. The platform actively incorporates regular updates and enhancements based on user insights, ensuring its dynamic relevance. 
+Qissa thrives on user feedback, utilizing surveys, forums, and feedback forms to understand evolving needs. The platform actively incorporates regular updates and enhancements based on user insights, ensuring its dynamic relevance.
 
 Seamless feedback mechanisms and analytics-driven decision-making enable **Qissa** to refine user experience, enhance security, and introduce features aligned with **LGBTQ+ community** preferences.
 
 Transparent communication keeps users informed, fostering a collaborative journey of continuous improvement and innovation.
 
 ## WireFrames for the Project Idea
+
 ![Screenshot from 2024-01-21 20-56-32](https://github.com/404-GS-IIIT-Kota/Temp/assets/124715224/1df0e2be-baed-4b48-9aae-a9725112bc2c)
 
 ## UI For the SignIn Page
-![Login](https://github.com/404-GS-IIIT-Kota/Temp/assets/124715224/275086f8-ad85-45c2-9032-c83f9af602de)
 
+![Login](https://github.com/404-GS-IIIT-Kota/Temp/assets/124715224/275086f8-ad85-45c2-9032-c83f9af602de)
 
 ## Tech Stack used
 
@@ -83,6 +77,10 @@ Transparent communication keeps users informed, fostering a collaborative journe
 - MongoDB
 - RESTApi
 - GoogleAPI
+
+## Qissa PDF File
+
+[my link](./Qissa.pdf)
 
 ## Team 404
 
