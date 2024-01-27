@@ -78,9 +78,7 @@ Transparent communication keeps users informed, fostering a collaborative journe
 - RESTApi
 - GoogleAPI
 
-## Qissa PDF File
-
-[my link](./Qissa.pdf)
+[Qissa PDF File](./Qissa.pdf)
 
 ## Team 404
 
