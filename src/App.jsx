@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Loader from "./component/Loader";
-import SignIn from './scenes/signin'
-import SignUp from "./scenes/signup";
+import SignIn from './pages/signin'
+import SignUp from "./pages/signup";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));

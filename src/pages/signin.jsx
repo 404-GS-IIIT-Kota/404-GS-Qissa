@@ -1,10 +1,9 @@
-import React from "react";
 import LockIcon from "@mui/icons-material/Lock";
 import PersonIcon from "@mui/icons-material/Person";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import placeholderImage from "/sign-up-image-1.jpg";
+import placeholderImage from "../assets/sign-up-image-1.jpg";
 
 const Signup = () => {
   return (

@@ -1,6 +1,4 @@
-import React from "react";
-import SignUpImage from "/sign-up-page.jpg";
-import SignUpGif from "/sign-up-gif.gif";
+import SignUpImage from "../assets/sign-up-page.jpg";
 
 const SignUp = () => {
   return (
