@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/signin",
-      "destination": "/vercel.com/iiitians-nerwork/signin"
+      "destination": "/404-gs-qissa.vercel.app/signin"
     },
     {
       "source": "/signup",
-      "destination": "/vercel.com/iiitians-nerwork/signup"
+      "destination": "/404-gs-qissa.vercel.app/signup"
     }
   ]
 }
