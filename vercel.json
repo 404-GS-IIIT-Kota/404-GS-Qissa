@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/signin",
+      "destination": "/vercel.com/iiitians-nerwork/signin"
+    },
+    {
+      "source": "/signup",
+      "destination": "/vercel.com/iiitians-nerwork/signup"
+    }
+  ]
+}
