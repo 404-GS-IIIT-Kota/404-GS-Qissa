@@ -75,12 +75,13 @@ const SignUp = () => {
               />
             </div>
             <Link to="/signup-2">
-            <button
-              type="submit"
-              className="w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center justify-center"
-            >
-              Next
-            </button></Link>
+              <button
+                type="submit"
+                className="w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center justify-center"
+              >
+                Next
+              </button>
+            </Link>
           </form>
           <div className="mt-4 flex">
             <p className="text-gray-700 inline-block">

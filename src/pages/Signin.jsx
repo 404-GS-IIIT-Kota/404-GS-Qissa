@@ -21,7 +21,9 @@ const Signup = () => {
             className="w-full h-full object-cover"
             style={{ width: "75%", height: "75%" }}
           />
-          <Link to="/signup" className="text-gray-700 hover:underline mt-4">Create a new account</Link>         
+          <Link to="/signup" className="text-gray-700 hover:underline mt-4">
+            Create a new account
+          </Link>
         </div>
 
         {/* Right Section - Signup Form */}
@@ -32,14 +34,14 @@ const Signup = () => {
           <br />
           <br />
           <form className="w-full md:w-full">
-            <div className="mb-8 flex items-center">
+            <div className="mb-8 max-sm:mt-5 flex items-center">
               <PersonIcon className="text-black-800 mr-2" />
               <input
                 type="text"
                 id="name"
                 name="name"
                 placeholder="Username"
-                className="w-3/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                className="w-3/5 max-sm:w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               />
             </div>
 
@@ -50,30 +52,29 @@ const Signup = () => {
                 id="password"
                 name="password"
                 placeholder="Password"
-                className="w-3/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                className="w-3/5 px-4 max-sm:w-full py-2 border rounded-md focus:outline-none focus:border-blue-500"
               />
             </div>
 
-            <div className="mb-6">
-              <label className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                <span className="text-gray-700">Remember Me</span>
-                <br />
-              </label>
+            <div className="mb-6 flex items-center max-sm:justify-center">
+              <input type="checkbox" className="mr-2" />
+              <span className="text-gray-700 max-sm:text-center">
+                Remember Me
+              </span>
             </div>
 
             <Link to="/main">
-            <button
-              type="submit"
-              className="w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center justify-center"
-            >
-              Log In
-            </button>
+              <button
+                type="submit"
+                className="w-2/5  bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center max-sm:w-[60%] justify-center max-sm:translate-x-[4rem]"
+              >
+                Log In
+              </button>
             </Link>
           </form>
           <br />
           <br />
-          <div className="mt-4 flex items-center">
+          <div className="mt-4 flex items-center max-sm:justify-center">
             <span className="text-gray-700 text-sm">Or login with </span>
             <FacebookIcon className="text-blue-600 ml-2 cursor-pointer" />
             <TwitterIcon className="text-blue-400 ml-2 cursor-pointer" />
