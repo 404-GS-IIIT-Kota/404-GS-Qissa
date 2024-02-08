@@ -21,9 +21,7 @@ const Signup = () => {
             className="w-full h-full object-cover"
             style={{ width: "75%", height: "75%" }}
           />
-          <a href="/signup" className="text-gray-700 hover:underline mt-4">
-            Create a new account
-          </a>
+          <Link to="/signup" className="text-gray-700 hover:underline mt-4">Create a new account</Link>         
         </div>
 
         {/* Right Section - Signup Form */}
