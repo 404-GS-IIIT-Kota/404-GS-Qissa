@@ -4,6 +4,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import placeholderImage from "../assets/sign-up-image-1.jpg";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -63,12 +64,14 @@ const Signup = () => {
               </label>
             </div>
 
+            <Link to="/main">
             <button
               type="submit"
               className="w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center justify-center"
             >
               Log In
             </button>
+            </Link>
           </form>
           <br />
           <br />

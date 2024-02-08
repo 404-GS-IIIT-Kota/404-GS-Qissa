@@ -1,7 +1,9 @@
 import SignUpImage from "../assets/sign-up-page.jpg";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
+    // bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500
     <div className="h-screen flex items-center justify-center bg-gray-200">
       <div
         className="w-80 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
@@ -72,19 +74,20 @@ const SignUp = () => {
                 className="w-3/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
               />
             </div>
+            <Link to="/signup-2">
             <button
               type="submit"
               className="w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center justify-center"
             >
-              Sign Up
-            </button>
+              Next
+            </button></Link>
           </form>
           <div className="mt-4 flex">
             <p className="text-gray-700 inline-block">
               Already have an account?{" "}
             </p>
             <a
-              href="/signin"
+              href="/"
               className="text-gray-700 hover:underline ml-2 inline-block"
             >
               Sign In
