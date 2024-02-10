@@ -1,5 +1,5 @@
 import React from "react";
-import PostPlaceholder from "../assets/PostPlaceholder.jpg"
+import PostPlaceholder from "../assets/postPlaceholder.jpg"
 import AddComment from "./AddComment";
 
 const Post = () => {
