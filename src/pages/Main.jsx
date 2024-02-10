@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Post from "../component/Post";
+import AddPost from "../component/AddPost";
 import { useState } from "react";
 
 const Main = () => {
@@ -17,7 +19,7 @@ const Main = () => {
           {/* Increased z-index */}
           <div className="relative top-4 max-w-900 flex justify-between items-center pr-16">
             <h1 className="font-bold text-xl hover:cursor-pointer relative left-4">
-              <Link to="/main">Qissa.</Link>
+              <Link to="/main">Qissaa.</Link>
             </h1>
             <ul className="flex items-center gap-16 max-sm:hidden">
               <li className="hover:cursor-pointer">
@@ -54,8 +56,11 @@ const Main = () => {
             </div>
           )}
         </div>
-        <div className="h-100 z-10 w-9/12 max-sm:w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-80 max-sm:left-[1rem]"></div>{" "}
-        <div className="h-100  w-60 bg-white rounded-2xl shadow-2xl absolute top-24 max-sm:hidden left-16 z-10">
+        <div className="h-100 z-10 w-9/12 max-sm:w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-80 max-sm:left-[1rem]  gap-2 items-center justify-center">
+          <AddPost />
+            <Post />
+          </div>{" "}
+        <div className="h-100  w-60 bg-white rounded-2xl shadow-2xl absolute top-24  max-sm:hidden left-16 z-10">
           <div className="rounded-full h-20 w-20 bg-red-500 relative top-5 left-5 hover:cursor-pointer">
             <Link to="/profile"></Link>
           </div>
