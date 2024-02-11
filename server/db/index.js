@@ -7,7 +7,7 @@ mongoose.connect(
 
 // Schema
 const UserSchema = new mongoose.Schema({
-  firstname: String,
+  firstName: String,
   lastName: String,
   username: String,
   email: String,

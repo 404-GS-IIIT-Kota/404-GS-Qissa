@@ -1,13 +1,16 @@
 const { Router } = require("express");
 const userMiddleware = require("../middleware/user");
 const { User, Post } = require("../db");
-const { JWT_SECRET } = "hello";
+const { JWT_SECRET } = { JWT_SECRET: "hello" };
 const zod = require("zod");
 const router = Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const bodyParser = require("body-parser");
 
-const signupSchema = zod.object({
+router.use(bodyParser.json());
+
+const signupSchema1 = zod.object({
   firstName: zod.string(),
   lastName: zod.string(),
   username: zod.string(),
@@ -22,6 +25,8 @@ const signupSchema = zod.object({
     }),
   email: zod.string().email(),
   confirmPassword: zod.string(),
+});
+const signupSchema2 = zod.object({
   country: zod.string(),
   birthday: zod.string(),
   gender: zod.string(),
@@ -34,7 +39,7 @@ const signupSchema = zod.object({
 router.post("/signup", async function (req, res) {
   try {
     const { firstName, lastName, username, password, confirmPassword, email } =
-      signupSchema.parse(req.body);
+      signupSchema1.parse(req.body);
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords do not match" });
@@ -58,6 +63,7 @@ router.post("/signup", async function (req, res) {
     });
 
     await user.save();
+    res.redirect("/signup-2?username=" + encodeURIComponent(username));
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -65,21 +71,19 @@ router.post("/signup", async function (req, res) {
 
 router.post("/signup-2", async function (req, res) {
   try {
-    const { country, birthday, gender, pronouns, bio } = signupSchema.parse(
+    const { country, birthday, gender, pronouns, bio } = signupSchema2.parse(
       req.body
     );
-    // Retrieve the user data from the request body or wherever you have stored it
-    const userData = req.body.user;
+    // Retrieve the username from the query parameters
+    const username = req.query.username;
 
-    // Ensure userData is not empty and contains necessary user details
-    if (!userData || !userData.username) {
-      return res
-        .status(400)
-        .json({ error: "User data not provided or incomplete" });
+    // If username is not provided, return error
+    if (!username) {
+      return res.status(400).json({ error: "Username not provided" });
     }
 
     // Find the user by username
-    const user = await User.findOne({ username: userData.username });
+    const user = await User.findOne({ username });
 
     // If user not found, return error
     if (!user) {
@@ -104,7 +108,8 @@ router.post("/signup-2", async function (req, res) {
 
 router.post("/signin", async (req, res) => {
   try {
-    const { username, password } = signinSchema.parse(req.body);
+    const username = req.body.username;
+    const password = req.body.password;
 
     const user = await User.findOne({ username });
 
@@ -119,6 +124,7 @@ router.post("/signin", async (req, res) => {
     }
 
     const token = jwt.sign({ username: user.username }, JWT_SECRET);
+    res.send({ token });
     res.setHeader("Authorization", `Bearer ${token}`);
     res.status(200).json({ message: "Authentication successful" });
   } catch (error) {
