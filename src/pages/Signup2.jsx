@@ -27,9 +27,9 @@ const Signup2 = () => {
             <div className="mb-8 flex items-center">
               <select
                 id="countries"
-                class="w-2/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
+                className="w-2/5 px-4 py-2 border rounded-md focus:outline-none  focus:border-slate-500  border-gray-300"
               >
-                <option selected className=" text-gray-400">
+                <option selected className="text-gray-400">
                   Choose your country
                 </option>
                 <option value="US">United States</option>
@@ -88,7 +88,7 @@ const Signup2 = () => {
             <div className="mb-8 flex items-center">
               <select
                 id="genders"
-                class="w-2/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
+                className="w-2/5 px-4 py-2 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
               >
                 <option value="" className="text-gray-400">
                   Select your gender
@@ -111,7 +111,7 @@ const Signup2 = () => {
 
               <select
                 id="pronouns"
-                className="w-2/5 px-4 py-2 ml-5 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
+                className="w-2/5 px-4 py-2 ml-5 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
               >
                 <option value="" style={{ color: "#718096" }}>
                   Choose your pronouns
@@ -142,7 +142,7 @@ const Signup2 = () => {
               <textarea
                 id="message"
                 rows="4"
-                class="w-full resize-none px-4 py-2 border rounded-md focus:outline-none
+                className="w-full resize-none px-4 py-2 border rounded-md focus:outline-none
                 focus:border-blue-500 border-gray-300"
                 placeholder="Tell us more about yourself..."
               ></textarea>

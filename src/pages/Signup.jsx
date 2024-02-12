@@ -1,10 +1,22 @@
 import SignUpImage from "../assets/sign-up-page.jpg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const SignUp = () => {
+  const [post, setPost] = useState({
+    Fname: "",
+    Lname: "",
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInput = (e) => {
+    setPost({ ...post, [e.target.name]: e.target.value });
+  };
+
   return (
-    // bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500
-    <div className="h-screen flex items-center justify-center bg-gray-200">
+    <div className="h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500">
       <div
         className="w-80 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
         style={{ width: "85%", height: "85%" }}
@@ -29,6 +41,8 @@ const SignUp = () => {
                 id="Fname"
                 name="Fname"
                 placeholder="First Name"
+                value={post.Fname}
+                onChange={handleInput}
                 className="w-2/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300 "
               />
               <input
@@ -36,6 +50,8 @@ const SignUp = () => {
                 id="Lname"
                 name="Lname"
                 placeholder="Last Name"
+                value={post.Lname}
+                onChange={handleInput}
                 className="w-2/5 px-4 py-2 ml-5 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
               />
             </div>
@@ -45,6 +61,8 @@ const SignUp = () => {
                 id="username"
                 name="username"
                 placeholder="Username"
+                value={post.username}
+                onChange={handleInput}
                 className="w-2/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
               />
               <input
@@ -52,6 +70,8 @@ const SignUp = () => {
                 id="email"
                 name="email"
                 placeholder="Your Mail"
+                value={post.email}
+                onChange={handleInput}
                 className="w-2/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300 ml-5"
               />
             </div>
@@ -62,6 +82,8 @@ const SignUp = () => {
                 id="password"
                 name="password"
                 placeholder="Password"
+                value={post.password}
+                onChange={handleInput}
                 className="w-3/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
               />
             </div>
