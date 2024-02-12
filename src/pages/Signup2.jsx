@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const Signup2 = () => {
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-200">
+    <div className="sm:h-screen  flex items-center justify-center bg-gray-200">
       <div
-        className="w-80 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
+        className="my-5 w-80 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
         style={{ width: "85%", height: "85%" }}
       >
         <div className="w-full lg:w-1/2 p-6 flex flex-col items-center justify-center">
@@ -23,13 +23,13 @@ const Signup2 = () => {
             Sign Up
           </h2>
           <br />
-          <form className="w-full md:w-full">
-            <div className="mb-8 flex items-center">
+          <form className="w-full md:w-full ">
+            <div className="mb-8 flex items-center justify-center max-sm:flex-col max-sm:gap-5">
               <select
                 id="countries"
-                className="w-2/5 px-4 py-2 border rounded-md focus:outline-none  focus:border-slate-500  border-gray-300"
+                className="w-2/5 px-4 py-2 border rounded-md focus:outline-none  focus:border-slate-500  border-gray-300 max-sm:w-full"
               >
-                <option selected className="text-gray-400">
+                <option selected className="text-gray-400 ">
                   Choose your country
                 </option>
                 <option value="US">United States</option>
@@ -85,10 +85,10 @@ const Signup2 = () => {
 
               <Datepicker />
             </div>
-            <div className="mb-8 flex items-center">
+            <div className="mb-8 flex items-center max-sm:flex-col max-sm:gap-5">
               <select
                 id="genders"
-                className="w-2/5 px-4 py-2 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
+                className="w-2/5 max-sm:w-full px-4 py-2 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
               >
                 <option value="" className="text-gray-400">
                   Select your gender
@@ -111,7 +111,7 @@ const Signup2 = () => {
 
               <select
                 id="pronouns"
-                className="w-2/5 px-4 py-2 ml-5 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
+                className="w-2/5 max-sm:w-full  max-sm:ml-0 px-4 py-2 ml-5 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
               >
                 <option value="" style={{ color: "#718096" }}>
                   Choose your pronouns
@@ -149,12 +149,13 @@ const Signup2 = () => {
             </div>
             <DropzoneComponent />
             <Link to="/signin">
-            <button
-              type="submit"
-              className="w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center justify-center"
-            >
-              Sign Up
-            </button></Link>
+              <button
+                type="submit"
+                className="w-2/5 max-sm:w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center justify-center"
+              >
+                Sign Up
+              </button>
+            </Link>
           </form>
         </div>
       </div>
