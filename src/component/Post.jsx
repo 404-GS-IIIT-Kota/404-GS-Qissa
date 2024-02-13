@@ -18,6 +18,7 @@ const Post = () => {
           <AddComment />
         </div>
       </div>
+    </div>
   );
 };
 
