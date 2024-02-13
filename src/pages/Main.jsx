@@ -61,9 +61,8 @@ const Main = () => {
             <Post />
           </div>{" "}
         <div className="h-100  w-60 bg-white rounded-2xl shadow-2xl absolute top-24  max-sm:hidden left-16 z-10">
-          <div className="rounded-full h-20 w-20 bg-red-500 relative top-5 left-5 hover:cursor-pointer">
-            <Link to="/profile"></Link>
-          </div>
+          <Link to = "/profile"><div className="rounded-full h-20 w-20 bg-red-500 relative top-5 left-5 hover:cursor-pointer">
+          </div></Link>
           <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2 "></div>
           <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
           <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>

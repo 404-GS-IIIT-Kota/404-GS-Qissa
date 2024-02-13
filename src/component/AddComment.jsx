@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import EmojiPicker from 'emoji-picker-react';
+import CloseIcon from '@mui/icons-material/Close';
+import { SkinTones, Theme, EmojiStyle, SuggestionMode, SkinTonePickerLocation } from 'emoji-picker-react';
 
 const AddComment = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -8,8 +11,14 @@ const AddComment = () => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const handleEmojiSelect = (emoji) => {
+  const handleEmojiSelect = (emojiData) => {
+    // Access the emoji property of the emojiData
+    const emoji = emojiData.emoji;
     setMessage(message + emoji);
+  };
+
+  const handleCloseEmojiPicker = () => {
+    setShowEmojiPicker(false);
   };
 
   const handleSubmit = (event) => {
@@ -18,20 +27,17 @@ const AddComment = () => {
     console.log("Message submitted:", message);
   };
 
-  // Define emojis array
-  const emojis = ["😊", "😂", "❤️", "😍", "👍", "🙌", "🎉", "🔥", "🥳", "🚀", "💯", "✨", "🌟", "🎈", "💥", "🎶", "🌈", "💻"];
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="chat" className="sr-only">
           Your message
         </label>
-        <div className="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
+        <div className="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800">
           <button
             type="button"
             onClick={handleEmojiClick}
-            className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+            className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-400 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
           >
             <svg
               className="w-5 h-5"
@@ -55,8 +61,8 @@ const AddComment = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows="1"
-            className="block mx-4 resize-none p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Your message..."
+            className="block mx-4 resize-none p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Add a comment..."
           ></textarea>
           <button
             type="submit"
@@ -71,19 +77,30 @@ const AddComment = () => {
             >
               <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
             </svg>
-            <span className="sr-only">Send message</span>
           </button>
         </div>
       </form>
       {showEmojiPicker && (
         <div className="absolute bottom-12 right-4 z-10 bg-white p-2 rounded-lg shadow-lg">
-          {/* Emoji list */}
-          <div className="grid grid-cols-6 gap-2">
-            {/* Map over the emojis array and render buttons */}
-            {emojis.map((emoji, index) => (
-              <button key={index} onClick={() => handleEmojiSelect(emoji)}>{emoji}</button>
-            ))}
+          <div className="flex justify-end mb-1">
+            <button
+              onClick={handleCloseEmojiPicker}
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 "
+            >
+              <CloseIcon />
+            </button>
           </div>
+          <EmojiPicker
+            width={300}
+            height={400}
+            onEmojiClick={handleEmojiSelect}
+            autoFocusSearch={true}
+            lazyLoadEmojis={true}
+            searchDisabled={false}
+            skinTonesDisabled={false}
+            skinTonePickerLocation={SkinTonePickerLocation.SEARCH}
+            emojiVersion="5.0"
+          />
         </div>
       )}
     </div>
