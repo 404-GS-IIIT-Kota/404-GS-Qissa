@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PostModal from "./PostModal";
 
 const AddPostWidget = () => {
@@ -15,8 +15,8 @@ const AddPostWidget = () => {
   return (
     <div className="w-full">
       <form>
-        <div className="mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-          <div className="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600">
+        <div className="mb-4 border max-sm:hidden border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+          <div className="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600 ">
             <h1 className="text-white">Something on your mind? </h1>
             <div className="flex space-x-1 rtl:space-x-reverse sm:ps-2">
               {/* Move the button inside this div */}
