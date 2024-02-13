@@ -16,9 +16,10 @@ const Post = () => {
         </div>
         <div className="absolute bottom-0 w-1/2">
           <AddComment />
+
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
