@@ -6,18 +6,14 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import placeholderImage from "../assets/sign-up-image-1.jpg";
 import { Link } from "react-router-dom";
 
-import axios from "axios";
-import { useState, useEffect } from "react";
-
 const Signup = () => {
-  const [post, setPost] = useState({});
-
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
       <div
         className="w-80 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl"
         style={{ width: "85%", height: "85%" }}
       >
+        {/* Left Section - Image */}
         <div className="w-full lg:w-1/2 p-6 flex flex-col items-center justify-center">
           <img
             src={placeholderImage}
@@ -30,6 +26,7 @@ const Signup = () => {
           </Link>
         </div>
 
+        {/* Right Section - Signup Form */}
         <div className="w-full lg:w-1/2 p-6 bg-white rounded-lg flex flex-col justify-center">
           <h2 className="text-5xl font-bold mb-4 max-sm:text-center">
             Sign In
@@ -57,6 +54,13 @@ const Signup = () => {
                 placeholder="Password"
                 className="w-3/5 px-4 max-sm:w-full py-2 border rounded-md focus:outline-none focus:border-blue-500"
               />
+            </div>
+
+            <div className="mb-6 flex items-center max-sm:justify-center">
+              <input type="checkbox" className="mr-2" />
+              <span className="text-gray-700 max-sm:text-center">
+                Remember Me
+              </span>
             </div>
 
             <Link to="/main">

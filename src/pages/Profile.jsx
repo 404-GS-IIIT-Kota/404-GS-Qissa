@@ -2,33 +2,24 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 const Profile = () => {
   const [isopen, setIsOpen] = useState(false);
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("/api/profile?username=DairyaMajmudar")
-      .then((res) => {
-        console.log(res.data);
-        setUser(res.data);
-      })
-      .catch((e) => console.log(e));
-  });
 
   return (
     <>
       <div className="h-screen bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500  relative">
-        {console.log(user)}
+        {" "}
+        {/* Added relative positioning */}
         <div className="w-11/12 h-16 bg-white rounded-2xl shadow-lg max-auto absolute top-4 left-[1rem] md:left-10 xl:left-16 z-20">
+          {" "}
+          {/* Increased z-index */}
           <div className="relative top-4 max-w-900 flex justify-between items-center pr-16">
             <h1 className="font-bold text-xl hover:cursor-pointer relative left-4">
               <Link to="/main">Qissa.</Link>
             </h1>
-            <ul className="flex items-center  gap-16 max-sm:hidden">
+            <ul className="flex items-center gap-16 max-sm:hidden">
               <li className="hover:cursor-pointer">
                 <Link to="/notifications">Notifications</Link>
               </li>
