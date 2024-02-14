@@ -9,7 +9,7 @@ const Notifications = () => {
 
   return (
     <>
-      <div className="h-screen bg-gradien-to-r from-pink-500 via-orange-400 to-yellow-500  relative">
+      <div className="h-screen bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500  relative">
         {" "}
         {/* Added relative positioning */}
         <div className="w-11/12 h-16 bg-white rounded-2xl shadow-lg max-auto absolute top-4 left-[1rem] md:left-10 xl:left-16 z-20">
