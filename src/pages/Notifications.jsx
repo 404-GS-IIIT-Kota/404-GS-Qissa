@@ -17,7 +17,7 @@ const Notifications = () => {
           {/* Increased z-index */}
           <div className="relative top-4 max-w-900 flex justify-between items-center pr-16">
             <h1 className="font-bold text-xl hover:cursor-pointer relative left-4">
-              <Link to="/main">Qissa.</Link>
+              <Link to="/main">Qissaa</Link>
             </h1>
             <ul className="flex items-center gap-16 max-sm:hidden">
               <li className="hover:cursor-pointer">
@@ -54,22 +54,13 @@ const Notifications = () => {
             </div>
           )}
         </div>
-        <div className="h-100 z-10 w-9/12 max-sm:w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-80 max-sm:left-[1rem]"></div>{" "}
-        <div className="h-100  w-60 bg-white rounded-2xl shadow-2xl absolute top-24 max-sm:hidden left-16 z-10">
-          <div className="rounded-full h-20 w-20 bg-red-500 relative top-5 left-5 hover:cursor-pointer">
-            <Link to="/profile"></Link>
-          </div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2 "></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-        </div>
+        <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 flex justify-center items-center">
+            <div className="w-[80%] h-[100%] border border-black p-5 overflow-auto">
+              <div className="w-[100%] h-[8rem] border border-black p-5 p-5 mt-3 mb-3">
+                <h1>Notification!!</h1>
+              </div>
+            </div>
+        </div>{" "}
       </div>
     </>
   );

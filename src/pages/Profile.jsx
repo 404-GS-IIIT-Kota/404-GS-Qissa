@@ -3,33 +3,20 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Coding from "../assets/codingdp.png"
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 const Profile = () => {
   const [isopen, setIsOpen] = useState(false);
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("/api/profile?username=DairyaMajmudar")
-      .then((res) => {
-        console.log(res.data);
-        setUser(res.data);
-      })
-      .catch((e) => console.log(e));
-  });
 
   return (
     <>
-      <div className="h-screen bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500  relative">
-        {console.log(user)}
+      <div className="h-screen bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500 relative">
         <div className="w-11/12 h-16 bg-white rounded-2xl shadow-lg max-auto absolute top-4 left-[1rem] md:left-10 xl:left-16 z-20">
           <div className="relative top-4 max-w-900 flex justify-between items-center pr-16">
             <h1 className="font-bold text-xl hover:cursor-pointer relative left-4 text-gray-800">
               <Link to="/main">Qissaa</Link>
             </h1>
-            <ul className="flex items-center  gap-16 max-sm:hidden">
+            <ul className="flex items-center gap-16 max-sm:hidden">
               <li className="hover:cursor-pointer">
                 <Link to="/notifications" className="text-gray-800">
                   Notifications
@@ -73,7 +60,7 @@ const Profile = () => {
           )}
         </div>
         <div className="h-100 w-11/12 max-sm:w-11/12 rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 z-20">
-          <div className="relative w-[85%] h-[65%] bg-white rounded-tl-2xl">
+          <div className="relative w-[85%] h-[65%] bg-white rounded-tl-2xl md:flex md:flex-col">
             <div className="absolute top-[27px] right-0 h-80 w-full flex flex-col items-start justify-center p-[2rem] gap-1">
               <h1 className="text-gray-800 text-[5rem] font-semibold">
                 Aaryan Singh / <span className="text-[3rem] text-gray-600">@aaryan9</span>
@@ -89,7 +76,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className="w-[15%] h-[100%] rounded-tr-2xl rounded-br-2xl bg-red-300 absolute top-0 right-0"><Link to="/profile" className="w-full h-full rounded-full"></Link></div>
+          <div className="w-[15%] h-[100%] rounded-tr-2xl rounded-br-2xl bg-red-300 absolute top-0 right-0"></div>
           <div className="w-[85%] h-[35%] bg-white rounded-bl-2xl flex justify-around items-center">
             <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
             <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
