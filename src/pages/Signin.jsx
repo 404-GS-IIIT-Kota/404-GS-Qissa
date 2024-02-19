@@ -5,8 +5,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import placeholderImage from "../assets/sign-up-image-1.jpg";
 import { Link } from "react-router-dom";
-
-import axios from "axios";
 import { useState, useEffect } from "react";
 
 const Signup = () => {
@@ -59,7 +57,7 @@ const Signup = () => {
               />
             </div>
 
-            <Link to="/main">
+            <Link to="/beautiful-experiences">
               <button
                 type="submit"
                 className="w-2/5  bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center max-sm:w-[60%] justify-center max-sm:translate-x-[4rem]"

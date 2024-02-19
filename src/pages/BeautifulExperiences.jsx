@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Post from "../component/Post";
+import AddPost from "../component/AddPost";
 
 const Modal = ({ closeModal }) => {
   const modalRef = useRef();
@@ -14,10 +16,10 @@ const Modal = ({ closeModal }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [closeModal]);
 
@@ -30,8 +32,8 @@ const Modal = ({ closeModal }) => {
   );
 };
 
-const Notifications = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const BeautifulExperiences = () => {
+  const [isopen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -64,13 +66,13 @@ const Notifications = () => {
             </ul>
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen(!isopen)}
               className="translate-x-10 hidden max-sm:block"
             >
-              {isOpen ? <CloseIcon /> : <MenuIcon />}
+              {isopen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </div>
-          {isOpen && (
+          {isopen && (
             <div className="bg-[#e1e1e1]  shadow-xl h-[150px] w-[150px] translate-x-[11.3rem] rounded-2xl p-4 z-30 translate-y-10">
               <ul className="h-full flex flex-col gap-5 ">
                 <li className="hover:cursor-pointer">
@@ -86,16 +88,29 @@ const Notifications = () => {
             </div>
           )}
         </div>
-        <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 flex justify-center items-center">
-            <div className="w-[80%] h-[100%] border border-black p-5 overflow-auto">
-              <div className="w-[100%] h-[8rem] border border-black p-5 p-5 mt-3 mb-3">
-                <h1>Notification!!</h1>
-              </div>
-            </div>
+        <div className="h-100 z-10 w-9/12 max-sm:w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-80 max-sm:left-[1rem]  gap-2 items-center justify-center">
+          <AddPost />
+          <Post />
         </div>{" "}
+        <div className="h-100  w-60 bg-white rounded-2xl shadow-2xl absolute top-24  max-sm:hidden left-16 z-10">
+          <Link to="/profile">
+            <div className="rounded-full h-20 w-20 bg-red-500 relative top-5 left-5 hover:cursor-pointer">
+            </div>
+          </Link>
+          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2 "></div>
+          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
+          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
+        </div>
       </div>
     </>
   );
 };
 
-export default Notifications;
+export default BeautifulExperiences;
