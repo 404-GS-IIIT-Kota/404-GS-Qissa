@@ -100,65 +100,7 @@ const register = async (req, res, next) => {
   });
 };
 
-// const register2 = async(req,res,next) => {
-//     const {country, birthday , gender, pronoun, bio} = req.body;
 
-//     if(!country || !birthday || !gender || !pronoun || !bio){
-//         return next(new AppError('All fields are required' , 400));
-//     }
-
-//     const user = await User.create({
-//         country,
-//         birthday,
-//         gender,
-//         pronoun,
-//         bio,
-//         avatar: {
-//             public_id: email,
-//             secure_url:
-//               'https://res.cloudinary.com/du9jzqlpt/image/upload/v1674647316/avatar_drzgxv.jpg',
-//           },
-//     });
-
-//     if(req.file){
-//         try{
-//             const result = await cloudinary.v2.uploader.upload(req.file.path,{
-//                 folder: 'qissaBackend',
-//                 width:250,
-//                 height:250,
-//                 gravity:'faces',
-//                 crop:'fill'
-//             });
-
-//             if(result){
-//                 user.avatar.public_id = result.public_id;
-//                 user.avatar.secure_url = result.secure_url;
-
-//                 // Remove file from server
-//                 FileSystem.rm(`uploads/${req.file.filename}`)
-//             }
-//         }catch(e){
-//             return next(
-//                 new AppError(error || 'File is not uploaded , Please try again' , 500)
-//             )
-//         }
-//     }
-
-//     if(!user){
-//         return next(new AppError('User registration failed, please try again', 400))
-//     }
-
-//     await user.save();
-//     const token = await user.generateJWTToken();
-
-//     res.cookie('token ', token , cookieOptions)
-
-//     res.status(201).json({
-//         success: true,
-//         message: 'User registered successfully',
-//         user,
-//     })
-// }
 
 const login = async (req, res, next) => {
   try {
@@ -380,7 +322,6 @@ const updateUser = async () => {
 
 export {
   register,
-  // register2,
   login,
   logout,
   getProfile,
