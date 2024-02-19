@@ -10,14 +10,11 @@ import Profile from "./pages/Profile"
 import Signup2 from "./pages/Signup2"
 import { lazy, Suspense } from "react";
 
-const Home = lazy(() => import("./pages/Home"));
-
 const App = () => {
   return (
     <Router>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/home" element={<Home />} />
           <Route path="/" element={<SignIn />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/login" element={<SignIn />} />
