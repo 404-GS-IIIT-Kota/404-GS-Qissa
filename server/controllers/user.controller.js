@@ -3,6 +3,7 @@ import { User, Post } from "../models/user.model.js";
 import cloudinary from "cloudinary";
 import fs from "fs/promises";
 import sendEmail from "../utils/sendEmail.js";
+import bcrypt from "bcrypt";
 
 const cookieOptions = {
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7days
@@ -26,11 +27,8 @@ const register = async (req, res, next) => {
   } = req.body;
   console.log(req.body);
 
-  // if(!firstName || !userName || !email || !password || !confirmpassword){
-  //     return next(new AppError('All fields are required', 400));
-  // }
-
   const userExists = await User.findOne({ email });
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   if (userExists) {
     return next(new AppError("Email already exists", 400));
@@ -41,7 +39,7 @@ const register = async (req, res, next) => {
     lastName,
     userName,
     email,
-    password,
+    password: hashedPassword,
     confirmpassword,
     country,
     birthday,
@@ -175,8 +173,8 @@ const login = async (req, res, next) => {
       email,
     }).select("+password");
 
-    if (!user || !user.comparePassword(password)) {
-      return next(new AppError("Email or password does not match ", 400));
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return next(new AppError("Email or password does not match", 400));
     }
 
     const token = await user.generateJWTToken();
