@@ -5,10 +5,10 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import placeholderImage from "../assets/sign-up-image-1.jpg";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 const Signup = () => {
-  const [post, setPost] = useState({});
+  // const [post, setPost] = useState({});
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
