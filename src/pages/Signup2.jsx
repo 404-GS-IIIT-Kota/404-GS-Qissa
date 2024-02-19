@@ -24,7 +24,7 @@ const Signup2 = () => {
           </h2>
           <br />
           <form className="w-full md:w-full ">
-            <div className="mb-8 flex items-center justify-center max-sm:flex-col max-sm:gap-5">
+            <div className="mb-8 flex max-sm:flex-col max-sm:gap-5">
               <select
                 id="countries"
                 className="w-2/5 px-4 py-2 border rounded-md focus:outline-none  focus:border-slate-500  border-gray-300 max-sm:w-full"

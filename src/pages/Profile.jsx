@@ -81,7 +81,7 @@ const Profile = () => {
             <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
             <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
             <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
-            <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
+            {/* <div className="w-40 h-40 bg-gray-300 rounded-lg"></div> */}
           </div>
         </div>{" "}
       </div>
