@@ -9,19 +9,25 @@ config();
 
 const app = express();
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use(cors({
-    origin: [process.env.FRONTEND_URL],
-    credentials:true
-}));
 
+// Cors Middleware
+app.use(
+    cors({
+        origin: '*',
+        credentials: true
+    }));
+
+// Cookie Parser Middleware 
 app.use(cookieParser());
 
 app.use(morgan('dev'));
 
-app.use('/ping', function(req, res){
+// Server Status Check Route
+app.use('/ping', function (req, res) {
     res.send('Pong');
 });
 
