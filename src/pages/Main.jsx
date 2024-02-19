@@ -19,7 +19,7 @@ const Main = () => {
           {/* Increased z-index */}
           <div className="relative top-4 max-w-900 flex justify-between items-center pr-16">
             <h1 className="font-bold text-xl hover:cursor-pointer relative left-4">
-              <Link to="/main">Qissaa.</Link>
+              <Link to="/main">Qissaa</Link>
             </h1>
             <ul className="flex items-center gap-16 max-sm:hidden">
               <li className="hover:cursor-pointer">
