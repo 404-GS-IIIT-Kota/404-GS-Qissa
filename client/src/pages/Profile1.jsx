@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import axios from "axios"; // Import axios
+import ProfileCarousel from "../component/ProfileCarousel";
 
 const Modal = ({ closeModal }) => {
   const modalRef = useRef();
@@ -40,11 +40,9 @@ const Modal = ({ closeModal }) => {
   );
 };
 
-const Notifications = () => {
+const Profile1 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [notificationData, setNotificationData] = useState([]); // State to hold notification data
-  const [apiCalls, setApiCalls] = useState(0); // State to track API calls
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -54,37 +52,7 @@ const Notifications = () => {
     setModalOpen(false);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (apiCalls >= 5) {
-        // Check if API call limit reached
-        console.log("API call limit reached for this session");
-        return;
-      }
-
-      const options = {
-        method: "GET",
-        url: "https://lgbtq-world-news-live.p.rapidapi.com/news",
-        headers: {
-          "X-RapidAPI-Key":
-            "2b7f114c9cmshfba0d89e6bb3850p15c72ajsn0f3b600d90e6",
-          "X-RapidAPI-Host": "lgbtq-world-news-live.p.rapidapi.com",
-        },
-      };
-
-      try {
-        const response = await axios.request(options);
-        setNotificationData(response.data); // Update state with fetched data
-        setApiCalls(apiCalls + 1); // Increment API call count
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    if (apiCalls < 5) {
-      fetchData();
-    }
-  }, [apiCalls]); // Trigger effect when API call count changes
+  const items = [1, 2, 3, 4]; // Example items
 
   return (
     <>
@@ -134,23 +102,20 @@ const Notifications = () => {
           )}
         </div>
         <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 flex justify-center items-center">
-          <div className="w-[80%] h-[100%] p-5 overflow-scroll no-scrollbar">
-            {notificationData.map((notification, index) => (
-              <div
-                key={index}
-                className="w-[100%] h-auto bg-gray-200 rounded-2xl p-5 mt-3 mb-3"
-              >
-                <h1 className="font-semibold tracking-wide text-[3.5rem] max-md:text-[1.8rem] text-gray-900 capitalize mb-5">
-                  {notification.source}
-                </h1>
-                <p className="text-gray-800 tracking-wide text-[1.25rem] max-md:text-[1rem] mb-5">{notification.title}</p>
-                <Link to={notification.url} target="_blank">
-                  <button className="bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                    <span className="tracking-wide">Read More</span>
-                  </button>
-                </Link>
-              </div>
-            ))}
+          <div className="w-[90%] h-[100%] max-md:w-full p-5 max-md:p-3 overflow-scroll no-scrollbar">
+            <div className="w-full h-[70%] max-md:h-auto border border-black flex max-lg:flex-col max-md:justify-center max-md:itesms-center max-md:gap-10 justify-between items-center">
+                <div className="bg-red-500 ml-10 mr-10 max-md:mt-10 h-56 w-56 max-md:h-36 max-md:w-36 rounded-full"></div>
+                <div className="p-10 w-[80%] flex flex-col max-md:justify-center gap-5 max-md:w-full h-full border border-black">
+                    <h1 className="md:text-5xl max-md:text-[1.125rem] tracking-wider text-gray-800 font-bold">Aaryan Anil Kumar Singh</h1>
+                    <p className="text-4xl max-md:text-lg text-gray-600 font-semibold"> / @aaryan9</p>
+                    <p className="text-4xl max-md:text-lg text-gray-600">He/Him</p>
+                    <p className="text-4xl max-md:text-lg text-gray-600">19</p>
+                    <p className="text-4xl max-md:text-lg text-gray-600">India</p>
+                </div>
+            </div>
+            <div className="w-full h-[25rem] p-10 border border-black">
+              <ProfileCarousel items={items} />
+            </div>
           </div>
         </div>
       </div>
@@ -158,4 +123,4 @@ const Notifications = () => {
   );
 };
 
-export default Notifications;
+export default Profile1;
