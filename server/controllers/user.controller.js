@@ -83,7 +83,7 @@ const register = async (req, res, next) => {
 
 const login = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { userName, password } = req.body;
 
     if (!userName || !password) {
       return next(new AppError("All fields are required", 400));
