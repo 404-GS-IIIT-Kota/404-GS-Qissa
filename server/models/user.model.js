@@ -49,9 +49,9 @@ const userSchema = new Schema(
     country: {
       type: "String",
     },
-    birthday: {
-      type: "String",
-    },
+    // birthday: {
+    //   type: "String",
+    // },  // commented by dhairya intentionally
     gender: {
       type: "String",
     },

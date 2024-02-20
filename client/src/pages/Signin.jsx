@@ -29,7 +29,7 @@ const Signup = () => {
 
     try {
       const { user } = await axios.post(
-        "http://localhost:5000/api/v1/user/login",
+        "http://localhost:6004/api/v1/user/login",
         {
           name,
           password,
@@ -93,14 +93,14 @@ const Signup = () => {
               />
             </div>
 
-            <Link to="/beautiful-experiences">
+            {/* <Link to="/beautiful-experiences"> intentionally commented by dhairya*/}
             <button
               type="submit"
               className="w-2/5  bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center max-sm:w-[60%] justify-center max-sm:translate-x-[4rem]"
             >
               Log In
             </button>
-            </Link>
+            {/* </Link> */}
           </form>
           <br />
           <br />

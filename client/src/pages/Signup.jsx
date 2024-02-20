@@ -1,21 +1,25 @@
 import SignUpImage from "../assets/sign-up-page.jpg";
 import form3 from "../assets/form3.jpg";
-import Datepicker from "../component/Datepicker";
 import DropzoneComponent from "../component/DropzoneComponent";
 import axios from "axios";
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+// TODO: Make datepicker functional 
 
 const SignUp = () => {
   const [post, setPost] = useState({
-    Fname: "",
-    Lname: "",
-    username: "",
+    firstName: "",
+    lastName: "",
+    userName: "",
     email: "",
     password: "",
     country: "",
     gender: "",
     pronoun: "",
     bio: "",
+    // date: "",
   });
   const handleInput = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
@@ -25,42 +29,45 @@ const SignUp = () => {
     e.preventDefault();
 
     setPost({
-      Fname: "",
-      Lname: "",
-      username: "",
+      firstName: "",
+      lastName: "",
+      userName: "",
       email: "",
       password: "",
       country: "",
       gender: "",
       pronoun: "",
       bio: "",
+      // date: "",
     });
 
     const {
-      Fname,
-      Lname,
-      username,
+      firstName,
+      lastName,
+      userName,
       email,
       password,
       country,
       gender,
       pronoun,
       bio,
+      // date,
     } = post;
 
     try {
-      const { user } = await axios.post( 
-        "http://localhost:5000/api/v1/user/register",
+      const { user } = await axios.post(
+        "http://localhost:6004/api/v1/user/register",
         {
-          Fname,
-          Lname,
-          username,
+          firstName,
+          lastName,
+          userName,
           email,
           password,
           country,
           gender,
           pronoun,
           bio,
+          // date,
         }
       );
     } catch (e) {
@@ -71,6 +78,8 @@ const SignUp = () => {
   };
 
   const [toggle, setToggle] = useState(true);
+
+  const [selectedDate, setSelectedDate] = useState(null);
 
   return (
     <div className="sm:h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500">
@@ -98,19 +107,19 @@ const SignUp = () => {
                 <div className="mb-8 flex items-center max-sm:flex-col gap-7">
                   <input
                     type="text"
-                    id="Fname"
-                    name="Fname"
+                    id="firstName"
+                    name="firstName"
                     placeholder="First Name"
-                    value={post.Fname}
+                    value={post.firstName}
                     onChange={handleInput}
                     className="w-2/5 px-4 py-2 max-sm:w-full  border rounded-md focus:outline-none focus:border-blue-500 border-gray-300 "
                   />
                   <input
                     type="text"
-                    id="Lname"
-                    name="Lname"
+                    id="lastName"
+                    name="lastName"
                     placeholder="Last Name"
-                    value={post.Lname}
+                    value={post.lastName}
                     onChange={handleInput}
                     className="w-2/5 max-sm:w-full px-4 py-2 ml-5 border max-sm:ml-0 rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
                   />
@@ -118,10 +127,10 @@ const SignUp = () => {
                 <div className="mb-8 flex items-center max-sm:flex-col  gap-7">
                   <input
                     type="text"
-                    id="username"
-                    name="username"
+                    id="userName"
+                    name="userName"
                     placeholder="Username"
-                    value={post.username}
+                    value={post.userName}
                     onChange={handleInput}
                     className="w-2/5 px-4 py-2 max-sm:w-full border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
                   />
@@ -368,8 +377,27 @@ const SignUp = () => {
                     <option value="ZM">Zambia</option>
                     <option value="ZW">Zimbabwe</option>
                   </select>
-                  {/* left to add in obj */}
-                  <Datepicker />
+  
+                  <div className="relative w-2/5 max-sm:w-full">
+                    {/* <DatePicker
+                      name="date"
+                      value={post.date}
+                      selected={selectedDate}
+                      onChange={(date) => {
+                        setSelectedDate(date);
+                        handleInput(date);
+                      }}
+                      className="w-full px-4 py-2 ml-5 max-sm:ml-0 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
+                      placeholderText="Your Birthday"
+                    /> */}
+
+                    <DatePicker
+                      selected={selectedDate}
+                      onChange={(date) => setSelectedDate(date)}
+                      className="w-full px-4 py-2 ml-5 max-sm:ml-0 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
+                      placeholderText="Your Birthday"
+                    />
+                  </div>
                 </div>
                 <div className="mb-8 flex items-center max-sm:flex-col max-sm:gap-5">
                   <select

@@ -4,16 +4,19 @@ import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Coding from "../assets/codingdp.png";
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 const Profile = () => {
   const [isopen, setIsOpen] = useState(false);
 
-  const [data, setData] = useState("");
+  // const [data, setData] = useState("");
 
-  const getData = async () => {
-    const resp = axios.get("http://localhost:5000/api/v1/user/profile");
-    setData(resp.data);
-  };
+  // const getData = async () => {
+  //   const resp = await axios.get("http://localhost:6004/api/v1/user/profile");
+  //   setData(resp.data);
+  // };
+
+  // getData();
+  // console.log(data);
 
   return (
     <>

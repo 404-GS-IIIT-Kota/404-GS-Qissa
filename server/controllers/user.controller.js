@@ -2,7 +2,7 @@ import AppError from "../utils/error.util.js";
 import { User } from "../models/user.model.js";
 import cloudinary from "cloudinary";
 import sendEmail from "../utils/sendEmail.js";
-import  validator  from "validator";
+import validator from "validator";
 import bcrypt from "bcrypt";
 import crypto from "crypto"; // Add crypto module import for generating hash
 
@@ -24,6 +24,7 @@ const register = async (req, res, next) => {
       gender,
       pronoun,
       bio,
+      // birthday
     } = req.body;
 
     const userExists = await User.findOne({ email });
@@ -48,11 +49,11 @@ const register = async (req, res, next) => {
       gender,
       pronoun,
       bio,
-      avatar: {
-        public_id: email,
-        secure_url:
-          "https://res.cloudinary.com/du9jzqlpt/image/upload/v1674647316/avatar_drzgxv.jpg",
-      },
+      // avatar: {
+      //   public_id: email,
+      //   secure_url:
+      //     "https://res.cloudinary.com/du9jzqlpt/image/upload/v1674647316/avatar_drzgxv.jpg",
+      // },   //  intentionally commented out by dhairya 
     });
 
     if (!user) {
@@ -128,6 +129,7 @@ const getProfile = async (req, res, next) => {
     const userId = req.user.id;
     const user = await User.findById(userId);
 
+    console.log(userId, user);
     res.status(200).json({
       success: true,
       message: "user details",

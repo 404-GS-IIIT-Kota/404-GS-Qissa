@@ -1,10 +1,10 @@
 import express from 'express';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { config } from 'dotenv';
 import morgan from 'morgan';
 import userRoutes from './routes/user.routes.js'
 import errorMiddleware from './middlewares/error.middleware.js';
+import cors from 'cors';
 config();
 
 const app = express();
@@ -15,11 +15,11 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // Cors Middleware
-// app.use(
-//     cors({
-//         origin: '*',
-//         credentials: true
-//     }));
+app.use(
+    cors({
+        origin: '*',
+        credentials: true
+    }));
 
 // Cookie Parser Middleware 
 app.use(cookieParser());
