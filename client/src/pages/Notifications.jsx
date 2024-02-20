@@ -140,13 +140,21 @@ const Notifications = () => {
                 key={index}
                 className="w-[100%] h-auto bg-gray-200 rounded-2xl p-5 mt-3 mb-3"
               >
-                <h1 className="font-semibold tracking-wide text-[3.5rem] max-md:text-[1.8rem] text-gray-900 capitalize mb-5">
+                <h1 className="font-semibold max-sm:text-center courgette-regular font-sans tracking-wide text-[3rem] max-md:text-[1.8rem] text-gray-900 capitalize mb-[0.7rem]">
                   {notification.source}
                 </h1>
-                <p className="text-gray-800 tracking-wide text-[1.25rem] max-md:text-[1rem] mb-5">{notification.title}</p>
+                <p className="text-gray-800 tracking-wide max-sm:text-center  text-[1.2rem] md:text-[1rem] mb-[1.5rem]">
+                  {notification.title}
+                </p>
+
                 <Link to={notification.url} target="_blank">
+<<<<<<< Updated upstream
                   <button className="bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                     <span className="tracking-wide">Read More</span>
+=======
+                  <button class="bg-gray-400 max-sm:items-center max-sm:ml-[2.6rem] hover:bg-blue-500 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                    <span class="tracking-wide">Read More</span>
+>>>>>>> Stashed changes
                   </button>
                 </Link>
               </div>
