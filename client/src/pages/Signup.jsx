@@ -49,7 +49,7 @@ const SignUp = () => {
     } = post;
 
     try {
-      const { user } = await axios.post(
+      const { user } = await axios.post( 
         "http://localhost:5000/api/v1/user/register",
         {
           Fname,
