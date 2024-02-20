@@ -9,11 +9,13 @@ const router = Router();
 router.post('/register', register);
 router.post('/login', login);
 router.get('/logout', logout);
-router.get('/me', isLoggedIn, getProfile);
+// router.get('/me', isLoggedIn, getProfile);
+router.get('/profile', getProfile);
+
+// some unnecessary routes remove if wanted 
 router.post("/reset", forgotPassword);
 router.post("/reset/:resetToken", resetPassword);
 router.post('/change-password', isLoggedIn, changePassword)
-router.post('/update', isLoggedIn, upload.single("avatar"), updateUser)
-
+router.post('/update', isLoggedIn, upload.single("avatar"), updateUser) // convert in put
 
 export default router;

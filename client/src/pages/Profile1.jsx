@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -104,14 +104,19 @@ const Profile1 = () => {
         <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 flex justify-center items-center">
           <div className="w-[90%] h-[100%] max-md:w-full p-5 max-md:p-3 overflow-scroll no-scrollbar">
             <div className="w-full h-[70%] max-md:h-auto border border-black flex max-lg:flex-col max-md:justify-center max-md:itesms-center max-md:gap-10 justify-between items-center">
-                <div className="bg-red-500 ml-10 mr-10 max-md:mt-10 h-56 w-56 max-md:h-36 max-md:w-36 rounded-full"></div>
-                <div className="p-10 w-[80%] flex flex-col max-md:justify-center gap-5 max-md:w-full h-full border border-black">
-                    <h1 className="md:text-5xl max-md:text-[1.125rem] tracking-wider text-gray-800 font-bold">Aaryan Anil Kumar Singh</h1>
-                    <p className="text-4xl max-md:text-lg text-gray-600 font-semibold"> / @aaryan9</p>
-                    <p className="text-4xl max-md:text-lg text-gray-600">He/Him</p>
-                    <p className="text-4xl max-md:text-lg text-gray-600">19</p>
-                    <p className="text-4xl max-md:text-lg text-gray-600">India</p>
-                </div>
+              <div className="bg-red-500 ml-10 mr-10 max-md:mt-10 h-56 w-56 max-md:h-36 max-md:w-36 rounded-full"></div>
+              <div className="p-10 w-[80%] flex flex-col max-md:justify-center gap-5 max-md:w-full h-full border border-black">
+                <h1 className="md:text-5xl max-md:text-[1.125rem] tracking-wider text-gray-800 font-bold">
+                  Aaryan Anil Kumar Singh
+                </h1>
+                <p className="text-4xl max-md:text-lg text-gray-600 font-semibold">
+                  {" "}
+                  / @aaryan9
+                </p>
+                <p className="text-4xl max-md:text-lg text-gray-600">He/Him</p>
+                <p className="text-4xl max-md:text-lg text-gray-600">19</p>
+                <p className="text-4xl max-md:text-lg text-gray-600">India</p>
+              </div>
             </div>
             <div className="w-full h-[25rem] p-10 border border-black">
               <ProfileCarousel items={items} />

@@ -23,6 +23,19 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setPost({
+      Fname: "",
+      Lname: "",
+      username: "",
+      email: "",
+      password: "",
+      country: "",
+      gender: "",
+      pronoun: "",
+      bio: "",
+    });
+
     const {
       Fname,
       Lname,

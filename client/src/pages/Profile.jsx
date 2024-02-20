@@ -2,11 +2,18 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Coding from "../assets/codingdp.png"
+import Coding from "../assets/codingdp.png";
 import { useState } from "react";
-
+import axios from "axios";
 const Profile = () => {
   const [isopen, setIsOpen] = useState(false);
+
+  const [data, setData] = useState("");
+
+  const getData = async () => {
+    const resp = axios.get("http://localhost:5000/api/v1/user/profile");
+    setData(resp.data);
+  };
 
   return (
     <>
@@ -63,7 +70,8 @@ const Profile = () => {
           <div className="relative w-[85%] h-[65%] bg-white rounded-tl-2xl md:flex md:flex-col">
             <div className="absolute top-[27px] right-0 h-80 w-full flex flex-col items-start justify-center p-[2rem] gap-1">
               <h1 className="text-gray-800 text-[5rem] font-semibold">
-                Aaryan Singh / <span className="text-[3rem] text-gray-600">@aaryan9</span>
+                Aaryan Singh /{" "}
+                <span className="text-[3rem] text-gray-600">@aaryan9</span>
               </h1>
               <h2 className="text-gray-600 text-3xl">He/Him</h2>
               <h2 className="text-gray-600 text-3xl">Location: India</h2>
