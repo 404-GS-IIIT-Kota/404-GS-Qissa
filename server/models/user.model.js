@@ -37,7 +37,7 @@ const userSchema = new Schema(
       trim: true,
       unique: true,
       // match: [
-
+      //apply regex here.
       // ]
     },
     password: {
@@ -110,13 +110,6 @@ const postSchema = new Schema(
   }
 );
 
-// const signupSchema2 = zod.object({
-//         country: zod.string(),
-//         birthday: zod.string(),
-//         gender: zod.string(),
-//         pronouns: zod.string(),
-//         bio: zod.string(),
-//       });
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {

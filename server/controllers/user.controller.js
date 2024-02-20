@@ -17,13 +17,14 @@ const register = async (req, res, next) => {
     userName,
     email,
     password,
-    confirmpassword,
     country,
-    birthday,
+    // birthday,
     gender,
     pronoun,
     bio,
   } = req.body;
+
+
   console.log(req.body);
 
   const userExists = await User.findOne({ email });
@@ -41,15 +42,15 @@ const register = async (req, res, next) => {
     password: hashedPassword,
     confirmpassword,
     country,
-    birthday,
+    // birthday,
     gender,
     pronoun,
     bio,
-    avatar: {
-      public_id: email,
-      secure_url:
-        "https://res.cloudinary.com/du9jzqlpt/image/upload/v1674647316/avatar_drzgxv.jpg",
-    },
+    // avatar: {
+    //   public_id: email,
+    //   secure_url:
+    //     "https://res.cloudinary.com/du9jzqlpt/image/upload/v1674647316/avatar_drzgxv.jpg",
+    // },
   });
 
   if (!user) {
@@ -84,7 +85,7 @@ const register = async (req, res, next) => {
     }
   }
 
-  await user.save();
+  // await user.save();
   // res.redirect("/signup-2?username=" + encodeURIComponent(username));
 
   user.password = undefined;

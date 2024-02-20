@@ -2,20 +2,60 @@ import SignUpImage from "../assets/sign-up-page.jpg";
 import form3 from "../assets/form3.jpg";
 import Datepicker from "../component/Datepicker";
 import DropzoneComponent from "../component/DropzoneComponent";
+import axios from "axios";
 import { useState } from "react";
 
 const SignUp = () => {
-  // const [post, setPost] = useState({
-  //   Fname: "",
-  //   Lname: "",
-  //   username: "",
-  //   email: "",
-  //   password: "",
-  // });
+  const [post, setPost] = useState({
+    Fname: "",
+    Lname: "",
+    username: "",
+    email: "",
+    password: "",
+    country: "",
+    gender: "",
+    pronoun: "",
+    bio: "",
+  });
+  const handleInput = (e) => {
+    setPost({ ...post, [e.target.name]: e.target.value });
+  };
 
-  // const handleInput = (e) => {
-  //   setPost({ ...post, [e.target.name]: e.target.value });
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const {
+      Fname,
+      Lname,
+      username,
+      email,
+      password,
+      country,
+      gender,
+      pronoun,
+      bio,
+    } = post;
+
+    try {
+      const { user } = await axios.post(
+        "http://localhost:5000/api/v1/user/register",
+        {
+          Fname,
+          Lname,
+          username,
+          email,
+          password,
+          country,
+          gender,
+          pronoun,
+          bio,
+        }
+      );
+    } catch (e) {
+      console.log(e);
+    }
+
+    console.log(post);
+  };
 
   const [toggle, setToggle] = useState(true);
 
@@ -39,12 +79,7 @@ const SignUp = () => {
             Sign Up
           </h2>
           <br />
-          <form
-            className="w-full md:w-full"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+          <form className="w-full md:w-full" onSubmit={handleSubmit}>
             {toggle ? (
               <>
                 <div className="mb-8 flex items-center max-sm:flex-col gap-7">
@@ -53,8 +88,8 @@ const SignUp = () => {
                     id="Fname"
                     name="Fname"
                     placeholder="First Name"
-                    // value={post.Fname}
-                    // onChange={handleInput}
+                    value={post.Fname}
+                    onChange={handleInput}
                     className="w-2/5 px-4 py-2 max-sm:w-full  border rounded-md focus:outline-none focus:border-blue-500 border-gray-300 "
                   />
                   <input
@@ -62,8 +97,8 @@ const SignUp = () => {
                     id="Lname"
                     name="Lname"
                     placeholder="Last Name"
-                    // value={post.Lname}
-                    // onChange={handleInput}
+                    value={post.Lname}
+                    onChange={handleInput}
                     className="w-2/5 max-sm:w-full px-4 py-2 ml-5 border max-sm:ml-0 rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
                   />
                 </div>
@@ -73,8 +108,8 @@ const SignUp = () => {
                     id="username"
                     name="username"
                     placeholder="Username"
-                    // value={post.username}
-                    // onChange={handleInput}
+                    value={post.username}
+                    onChange={handleInput}
                     className="w-2/5 px-4 py-2 max-sm:w-full border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
                   />
                   <input
@@ -82,8 +117,8 @@ const SignUp = () => {
                     id="email"
                     name="email"
                     placeholder="Your Mail"
-                    // value={post.email}
-                    // onChange={handleInput}
+                    value={post.email}
+                    onChange={handleInput}
                     className="w-2/5 px-4 py-2 max-sm:w-full max-sm:ml-0 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300 ml-5"
                   />
                 </div>
@@ -94,8 +129,8 @@ const SignUp = () => {
                     id="password"
                     name="password"
                     placeholder="Password"
-                    // value={post.password}
-                    // onChange={handleInput}
+                    value={post.password}
+                    onChange={handleInput}
                     className="w-3/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 max-sm:w-full border-gray-300"
                   />
                 </div>
@@ -104,6 +139,7 @@ const SignUp = () => {
                     type="password"
                     id="Cpassword"
                     name="Cpassword"
+                    // confirm the password from frontend
                     placeholder="Confirm Password"
                     className="w-3/5 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 max-sm:w-full border-gray-300"
                   />
@@ -113,8 +149,11 @@ const SignUp = () => {
               <>
                 <div className="mb-8 flex max-sm:flex-col max-sm:gap-5">
                   <select
-                    id="countries"
+                    id="country"
+                    name="country"
                     className="w-2/5 px-4 py-2 border rounded-md focus:outline-none  focus:border-slate-500  border-gray-300 max-sm:w-full"
+                    value={post.country}
+                    onChange={handleInput}
                   >
                     <option selected className="text-gray-400 ">
                       Choose your country
@@ -316,13 +355,16 @@ const SignUp = () => {
                     <option value="ZM">Zambia</option>
                     <option value="ZW">Zimbabwe</option>
                   </select>
-
+                  {/* left to add in obj */}
                   <Datepicker />
                 </div>
                 <div className="mb-8 flex items-center max-sm:flex-col max-sm:gap-5">
                   <select
-                    id="genders"
+                    id="gender"
+                    name="gender"
                     className="w-2/5 max-sm:w-full px-4 py-2 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
+                    value={post.gender}
+                    onChange={handleInput}
                   >
                     <option value="" className="text-gray-400">
                       Select your gender
@@ -344,8 +386,11 @@ const SignUp = () => {
                   </select>
 
                   <select
-                    id="pronouns"
+                    id="pronoun"
+                    name="pronoun"
                     className="w-2/5 max-sm:w-full  max-sm:ml-0 px-4 py-2 ml-5 border rounded-md focus:outline-none focus:border-slate-500 border-gray-300"
+                    value={post.pronoun}
+                    onChange={handleInput}
                   >
                     <option value="" style={{ color: "#718096" }}>
                       Choose your pronouns
@@ -380,18 +425,22 @@ const SignUp = () => {
                   <textarea
                     id="message"
                     rows="4"
-                    className="w-full resize-none px-4 py-2 border rounded-md focus:outline-none
-                focus:border-blue-500 border-gray-300"
+                    name="bio"
+                    className="w-full resize-none px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 border-gray-300"
                     placeholder="Tell us more about yourself..."
+                    value={post.bio}
+                    onChange={handleInput}
                   ></textarea>
                 </div>
+
+                {/* left to be added in the obj. */}
                 <DropzoneComponent />
               </>
             )}
 
             <div className="flex gap-5">
               <button
-                type="submit"
+                type="button"
                 className="w-2/5 bg-blue-500 text-white py-2 rounded-md max-sm:w-full hover:bg-blue-600 flex max-sm:items-center justify-center"
                 onClick={() => setToggle(!toggle)}
               >
@@ -411,7 +460,7 @@ const SignUp = () => {
           {toggle && (
             <div className="mt-4 flex">
               <p className="text-gray-700 inline-block">
-                Already have an account?{" "}
+                Already have an account?
               </p>
               <a
                 href="/"

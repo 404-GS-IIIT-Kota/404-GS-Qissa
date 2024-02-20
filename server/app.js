@@ -15,11 +15,11 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // Cors Middleware
-app.use(
-    cors({
-        origin: '*',
-        credentials: true
-    }));
+// app.use(
+//     cors({
+//         origin: '*',
+//         credentials: true
+//     }));
 
 // Cookie Parser Middleware 
 app.use(cookieParser());
