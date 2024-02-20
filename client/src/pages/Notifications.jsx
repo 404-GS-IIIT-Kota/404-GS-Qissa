@@ -118,9 +118,9 @@ const Notifications = () => {
             </button>
           </div>
           {isOpen && (
-            <div className="bg-[#e1e1e1]  shadow-xl h-[150px] w-[150px] translate-x-[11.3rem] rounded-2xl p-4 z-30 translate-y-10">
-              <ul className="h-full flex flex-col gap-5 ">
-                <li className="hover:cursor-pointer">
+            <div className="bg-[#e1e1e1]  shadow-xl h-[150px] w-[150px]  translate-x-[11.3rem] rounded-2xl p-4 z-30 translate-y-10">
+              <ul className="h-full flex flex-col gap-5  ">
+                <li className="hover:cursor-pointer hover:bg-gray-600">
                   <Link to="/notifications">Notifications</Link>
                 </li>
                 <li className="hover:cursor-pointer">
@@ -140,7 +140,7 @@ const Notifications = () => {
                 key={index}
                 className="w-[100%] h-auto bg-gray-200 rounded-2xl p-5 mt-3 mb-3"
               >
-                <h1 className="font-semibold max-sm:text-center courgette-regular font-sans tracking-wide text-[3rem] max-md:text-[1.8rem] text-gray-900 capitalize mb-[0.7rem]">
+                <h1 className="font-bold max-sm:text-center lato-regular font-sans tracking-wide text-[3rem] max-md:text-[1.8rem] text-gray-900 capitalize mb-[0.7rem]">
                   {notification.source}
                 </h1>
                 <p className="text-gray-800 tracking-wide max-sm:text-center  text-[1.2rem] md:text-[1rem] mb-[1.5rem]">
@@ -148,7 +148,7 @@ const Notifications = () => {
                 </p>
 
                 <Link to={notification.url} target="_blank">
-                  <button class="bg-gray-400 max-sm:items-center max-sm:ml-[2.6rem] hover:bg-blue-500 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                  <button class="bg-gray-400 max-sm:items-center max-sm:ml-[2.6rem] hover:bg-gray-600 hover:text-white text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center justify-center">
                     <span class="tracking-wide">Read More</span>
                   </button>
                 </Link>
