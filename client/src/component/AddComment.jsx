@@ -1,9 +1,10 @@
+// AddComment.js
+
 import React, { useState } from "react";
 import EmojiPicker from 'emoji-picker-react';
 import CloseIcon from '@mui/icons-material/Close';
-import { SkinTones, Theme, EmojiStyle, SuggestionMode, SkinTonePickerLocation } from 'emoji-picker-react';
 
-const AddComment = () => {
+const AddComment = ({ postId }) => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -12,7 +13,6 @@ const AddComment = () => {
   };
 
   const handleEmojiSelect = (emojiData) => {
-    // Access the emoji property of the emojiData
     const emoji = emojiData.emoji;
     setMessage(message + emoji);
   };
@@ -23,17 +23,16 @@ const AddComment = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add your logic to submit the message
     console.log("Message submitted:", message);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="chat" className="sr-only">
+        <label htmlFor={`chat-${postId}`} className="sr-only">
           Your message
         </label>
-        <div className="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800">
+        <div className="flex items-center px-3 py-2 rounded-lg bg-gray-800">
           <button
             type="button"
             onClick={handleEmojiClick}
@@ -57,7 +56,7 @@ const AddComment = () => {
             <span className="sr-only">Add emoji</span>
           </button>
           <textarea
-            id="chat"
+            id={`chat-${postId}`}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows="1"
@@ -90,16 +89,10 @@ const AddComment = () => {
               <CloseIcon />
             </button>
           </div>
+          <div className="border border-black w-full h-[21.5rem]"></div>
           <EmojiPicker
-            width={300}
-            height={400}
             onEmojiClick={handleEmojiSelect}
-            autoFocusSearch={true}
-            lazyLoadEmojis={true}
-            searchDisabled={false}
-            skinTonesDisabled={false}
-            skinTonePickerLocation={SkinTonePickerLocation.SEARCH}
-            emojiVersion="5.0"
+            disableSearchBar
           />
         </div>
       )}

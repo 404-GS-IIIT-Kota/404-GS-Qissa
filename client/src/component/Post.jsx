@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PostPlaceholder from "../assets/postPlaceholder.jpg";
 import PostItem from "./PostItem";
+import AddComment from "./AddComment";
 
 const Post = () => {
   // State to hold posts
@@ -49,7 +50,9 @@ const Post = () => {
       onScroll={handleScroll}
     >
       {posts.map((post) => (
-        <PostItem key={post.id} post={post} />
+        <div key={post.id}>
+          <PostItem post={post} />
+        </div>
       ))}
     </div>
   );

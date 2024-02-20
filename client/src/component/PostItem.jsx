@@ -1,3 +1,5 @@
+// PostItem.js
+
 import React from "react";
 import AddComment from "./AddComment";
 
@@ -14,13 +16,15 @@ const PostItem = ({ post }) => {
           />
         </div>
       </div>
-      <div className="w-1/2 h-full rounded-br-lg rounded-tr-lg bg-gray-100">
-        <div className="absolute top-0 w-1/2">
+      <div className="w-1/2 h-full rounded-br-lg rounded-tr-lg bg-gray-100 flex flex-col justify-between">
+        <div>
           <h1 className="p-3 font-bold">Comments</h1>
+          {/* Render comments here */}
         </div>
-        <div className="absolute bottom-0 w-1/2">
+        <div className="border border-black w-full h-[21.5rem]"></div>
+        <div className="p-3">
           {/* Render AddComment component here */}
-          <AddComment />
+          <AddComment postId={post.id} />
         </div>
       </div>
       {/* POST END */}
