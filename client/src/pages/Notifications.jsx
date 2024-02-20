@@ -148,13 +148,8 @@ const Notifications = () => {
                 </p>
 
                 <Link to={notification.url} target="_blank">
-<<<<<<< Updated upstream
-                  <button className="bg-gray-400 hover:bg-gray-500 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                    <span className="tracking-wide">Read More</span>
-=======
                   <button class="bg-gray-400 max-sm:items-center max-sm:ml-[2.6rem] hover:bg-blue-500 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center justify-center">
                     <span class="tracking-wide">Read More</span>
->>>>>>> Stashed changes
                   </button>
                 </Link>
               </div>
