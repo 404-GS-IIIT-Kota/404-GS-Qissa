@@ -49,7 +49,7 @@ const ProfileCarousel = ({ items }) => {
   if (isSmallScreen) {
     return (
       <div className="w-full h-full border border-black flex justify-center items-center">
-        <div className="w-72 h-72 bg-gray-300"></div>
+        <div className="w-full h-64 bg-gray-300"></div>
       </div>
     );
   }

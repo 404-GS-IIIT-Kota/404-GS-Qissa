@@ -21,8 +21,8 @@ const PostItem = ({ post }) => {
           <h1 className="p-3 font-bold">Comments</h1>
           {/* Render comments here */}
         </div>
-        <div className="border border-black w-full h-[21.5rem]"></div>
-        <div className="p-3">
+        <div className="border border-black w-full h-[21.5rem] overflow-scroll no-scrollbar"></div>
+        <div>
           {/* Render AddComment component here */}
           <AddComment postId={post.id} />
         </div>

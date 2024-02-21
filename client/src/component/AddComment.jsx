@@ -89,7 +89,6 @@ const AddComment = ({ postId }) => {
               <CloseIcon />
             </button>
           </div>
-          <div className="border border-black w-full h-[21.5rem]"></div>
           <EmojiPicker
             onEmojiClick={handleEmojiSelect}
             disableSearchBar
