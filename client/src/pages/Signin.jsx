@@ -44,17 +44,17 @@ const Signup = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-200">
+    <div className="sm:h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500">
       <div
-        className="w-80 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl"
+        className="w-80  max-sm:my-5 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
         style={{ width: "85%", height: "85%" }}
       >
         <div className="w-full lg:w-1/2 p-6 flex flex-col items-center justify-center">
           <img
             src={placeholderImage}
             alt="Placeholder"
-            className="w-full h-full object-cover"
-            style={{ width: "75%", height: "75%" }}
+            className="w-full h-full object-cover rounded-xl"
+            style={{ width: "70%", height: "70%" }}
           />
           <Link to="/signup" className="text-gray-700 hover:underline mt-4">
             Create a new account

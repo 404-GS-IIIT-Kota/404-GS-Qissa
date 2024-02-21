@@ -91,8 +91,8 @@ const SignUp = () => {
           <img
             src={toggle ? SignUpImage : form3}
             alt="Placeholder"
-            className="w-full h-full object-cover"
-            style={{ width: "90%", height: "90%" }}
+            className="w-full h-full object-cover rounded-xl"
+            style={{ width: "65%", height: "85%" }}
           />
         </div>
 
