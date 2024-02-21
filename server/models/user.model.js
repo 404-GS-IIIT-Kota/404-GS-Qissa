@@ -37,8 +37,8 @@ const userSchema = new Schema(
       unique: true,
       match: [
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        'Please fill in a valid email address',
-      ], 
+        "Please fill in a valid email address",
+      ],
     },
     password: {
       type: "String",
@@ -61,6 +61,12 @@ const userSchema = new Schema(
     bio: {
       type: "String",
     },
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
     forgotPasswordToken: String,
     forgotPasswordExpiry: Date,
   },
@@ -109,7 +115,6 @@ const postSchema = new Schema(
     timestamps: true,
   }
 );
-
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {

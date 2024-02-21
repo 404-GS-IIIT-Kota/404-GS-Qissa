@@ -53,7 +53,7 @@ const register = async (req, res, next) => {
       //   public_id: email,
       //   secure_url:
       //     "https://res.cloudinary.com/du9jzqlpt/image/upload/v1674647316/avatar_drzgxv.jpg",
-      // },   //  intentionally commented out by dhairya 
+      // },   //  intentionally commented out by dhairya
     });
 
     if (!user) {
@@ -99,7 +99,8 @@ const login = async (req, res, next) => {
     const token = await user.generateJWTToken();
     user.password = undefined;
 
-    res.cookie("token", token, cookieOptions);
+    res.cookie("token", token, cookieOptions); // Save token in cookie
+    res.cookie("username", user.userName, cookieOptions); // Save username in cookie
 
     res.status(200).json({
       success: true,
@@ -126,13 +127,18 @@ const logout = (req, res) => {
 
 const getProfile = async (req, res, next) => {
   try {
-    const userId = req.user.id;
-    const user = await User.findById(userId);
+    const userName = req.cookies.username;
+    const user = await User.findOne({ userName }).select(
+      "userName birthday bio country gender pronoun"
+    );
 
-    console.log(userId, user);
+    if (!user) {
+      return next(new AppError("User not found", 404));
+    }
+
     res.status(200).json({
       success: true,
-      message: "user details",
+      message: "User details",
       user,
     });
   } catch (error) {
