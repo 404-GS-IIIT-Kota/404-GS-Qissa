@@ -13,7 +13,7 @@ const AddBlogWidget = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full max-sm:absolute max-sm:top-0 max-sm:left-0">
         <div className="mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
           <div className="flex items-center justify-between px-3 py-2 dark:border-gray-600">
 

@@ -109,6 +109,8 @@ const LegalAdvocacyHub = () => {
         <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 justify-center overflow-scroll no-scrollbar p-10">
           <AddBlogWidget />
           <AddBlog />
+          <AddBlog />
+          <AddBlog />
         </div>{" "}
       </div>
     </>
