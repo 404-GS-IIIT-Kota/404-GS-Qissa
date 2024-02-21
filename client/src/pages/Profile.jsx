@@ -1,100 +1,142 @@
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Coding from "../assets/codingdp.png";
-import { useState } from "react";
-// import axios from "axios";
+import ProfileCarousel from "../component/ProfileCarousel";
+
+const Modal = ({ closeModal }) => {
+  const modalRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [closeModal]);
+
+  return (
+    <div
+      ref={modalRef}
+      className="absolute top-[2rem] h-[10rem] w-[12rem] left-0 bg-white rounded-2xl mt-2 p-4 shadow-2xl flex flex-col justify-around items-center"
+    >
+      <Link to="/beautiful-experiences" className="block mb-2">
+        Beautiful Experiences
+      </Link>
+      <Link to="/coming-out-stories" className="block mb-2">
+        Coming Out Stories
+      </Link>
+      <Link to="/legal-advocacy-hub" className="block mb-2">
+        Legal Advocacy Hub
+      </Link>
+    </div>
+  );
+};
+
 const Profile = () => {
-  const [isopen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  // const [data, setData] = useState("");
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
 
-  // const getData = async () => {
-  //   const resp = await axios.get("http://localhost:6004/api/v1/user/profile");
-  //   setData(resp.data);
-  // };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
-  // getData();
-  // console.log(data);
+  const items = [1, 2, 3, 4];
 
   return (
     <>
       <div className="h-screen bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500 relative">
         <div className="w-11/12 h-16 bg-white rounded-2xl shadow-lg max-auto absolute top-4 left-[1rem] md:left-10 xl:left-16 z-20">
           <div className="relative top-4 max-w-900 flex justify-between items-center pr-16">
-            <h1 className="font-bold text-xl hover:cursor-pointer relative left-4 text-gray-800">
-              <Link to="/main">Qissaa</Link>
+            <h1 className="font-bold text-xl hover:cursor-pointer relative left-4">
+              <Link to="/beautiful-experiences">Qissaa</Link>
             </h1>
             <ul className="flex items-center gap-16 max-sm:hidden">
               <li className="hover:cursor-pointer">
-                <Link to="/notifications" className="text-gray-800">
-                  Notifications
-                </Link>
+                <Link to="/happenings">Happenings</Link>
               </li>
-              <li className="hover:cursor-pointer">
+              <li
+                onClick={toggleModal}
+                className="hover:cursor-pointer relative"
+              >
                 Channels <ArrowDropDownIcon />
+                {modalOpen && <Modal closeModal={closeModal} />}
               </li>
               <li className="hover:cursor-pointer ">
-                <Link to="/profile" className="text-gray-800">
-                  Profile
-                </Link>
+                <Link to="/profile">Profile</Link>
               </li>
             </ul>
 
             <button
-              onClick={() => setIsOpen(!isopen)}
+              onClick={() => setIsOpen(!isOpen)}
               className="translate-x-10 hidden max-sm:block"
             >
-              {isopen ? <CloseIcon /> : <MenuIcon />}
+              {isOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </div>
-          {isopen && (
-            <div className="bg-[#e1e1e1] shadow-xl h-[150px] w-[150px] translate-x-[11.3rem] rounded-2xl p-4 z-30 translate-y-10">
+          {isOpen && (
+            <div className="bg-[#e1e1e1]  shadow-xl h-[230px] w-[200px] translate-x-[8rem] rounded-2xl p-4 z-30 translate-y-10">
               <ul className="h-full flex flex-col gap-5 ">
                 <li className="hover:cursor-pointer">
-                  <Link to="/notifications" className="text-gray-800">
-                    Notifications
-                  </Link>
+                  <Link to="/happenings">Happenings</Link>
                 </li>
                 <li className="hover:cursor-pointer">
-                  Channels <ArrowDropDownIcon />
+                  <Link to="/beautiful-experiences">Beautiful Experiences</Link>
+                </li>
+                <li className="hover:cursor-pointer">
+                  <Link to="/coming-out-stories">Coming Out Stories</Link>
+                </li>
+                <li className="hover:cursor-pointer">
+                  <Link to="/legal-advocacy-hub">Legal Advocacy Hub</Link>
                 </li>
                 <li className="hover:cursor-pointer ">
-                  <Link to="/profile" className="text-gray-800">
-                    Profile
-                  </Link>
+                  <Link to="/profile">Your Profile</Link>
                 </li>
               </ul>
             </div>
           )}
         </div>
-        <div className="h-100 w-11/12 max-sm:w-11/12 rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 z-20">
-          <div className="relative w-[85%] h-[65%] bg-white rounded-tl-2xl md:flex md:flex-col">
-            <div className="absolute top-[27px] right-0 h-80 w-full flex flex-col items-start justify-center p-[2rem] gap-1">
-              <h1 className="text-gray-800 text-[5rem] font-semibold">
-                Aaryan Singh /{" "}
-                <span className="text-[3rem] text-gray-600">@aaryan9</span>
-              </h1>
-              <h2 className="text-gray-600 text-3xl">He/Him</h2>
-              <h2 className="text-gray-600 text-3xl">Location: India</h2>
-              <h2 className="text-gray-600 text-3xl">Age: 19</h2>
-            </div>
-            <div className="absolute top-[27px] -right-48 h-80 w-96 border border-double border-black flex items-center justify-center">
-              {/* Content of the 80x96 box */}
-              <div className="absolute h-72 w-72 bg-gray-500 z-10">
-                <img src={Coding} />
+        <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 flex justify-center items-center">
+          <div className="w-[90%] h-[100%] max-md:w-full p-5 max-md:p-3 overflow-scroll no-scrollbar">
+            <div className="w-full h-[60%] max-md:h-auto  flex max-lg:flex-col max-md:justify-center max-md:itesms-center max-md:gap-10 justify-between items-center">
+              <div className="bg-red-500 ml-10 mr-10 max-md:mt-10 h-56 w-56 max-md:h-36 max-md:w-36 rounded-full"></div>
+              <div className="p-10 w-[80%] flex flex-col max-md:justify-center gap-1 max-md:w-full h-full ">
+                <p className="text-2xl max-md:text-lg text-gray-600 font-semibold">
+                  @aaryan9
+                </p>
+                <h1 className="md:text-[2rem] max-md:text-[1.125rem] tracking-wider text-gray-800 font-bold">
+                  Aaryan Anil Kumar Singh
+                </h1>
+                <p className="text-xl max-md:text-lg text-gray-600">He/Him</p>
+                <p className="text-lg max-md:text-lg text-gray-600">
+                  19 , India
+                </p>
+
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Nostrum mollitia rerum praesentium veniam consequatur aliquid
+                  distinctio fugiat tempora! Mollitia doloremque fuga vitae
+                  deserunt eius minus ipsam dicta necessitatibus corrupti
+                  commodi.
+                </p>
               </div>
             </div>
+            <div className="w-full h-[25rem] p-10 border">
+              <ProfileCarousel items={items} />
+            </div>
           </div>
-          <div className="w-[15%] h-[100%] rounded-tr-2xl rounded-br-2xl bg-red-300 absolute top-0 right-0"></div>
-          <div className="w-[85%] h-[35%] bg-white rounded-bl-2xl flex justify-around items-center">
-            <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
-            <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
-            <div className="w-40 h-40 bg-gray-300 rounded-lg"></div>
-            {/* <div className="w-40 h-40 bg-gray-300 rounded-lg"></div> */}
-          </div>
-        </div>{" "}
+        </div>
       </div>
     </>
   );
