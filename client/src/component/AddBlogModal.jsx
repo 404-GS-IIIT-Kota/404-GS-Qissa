@@ -3,7 +3,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const AddBlogModal = ({ onClose }) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-black bg-opacity-50">
+    <div className="fixed top-3 left-0 w-full h-full flex justify-center items-center z-50 bg-black bg-opacity-50">
       <div className="bg-white rounded-2xl flex justify-center items-center relative left-34 top-0 w-3/5 h-auto max-md:w-11/12 max-md:h-auto">
         {/* Add your content for the modal */}
 
