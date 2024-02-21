@@ -17,6 +17,7 @@ const Signup = () => {
   const handleInput = (e) => {
     setSignin({ ...signin, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -93,16 +94,18 @@ const Signup = () => {
               />
             </div>
 
-            {/* <Link to="/beautiful-experiences"> intentionally commented by dhairya*/}
-            <button
-              type="submit"
-              className="w-2/5  bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 flex max-sm:items-center max-sm:w-[60%] justify-center max-sm:translate-x-[4rem]"
-            >
-              Log In
-            </button>
-            {/* </Link> */}
+            <div className="flex flex-col sm:flex-row items-center">
+              <button
+                type="submit"
+                className="w-full sm:w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
+              >
+                Log In
+              </button>
+              <Link to="/forgot-password" className="text-gray-700 sm:ml-10 text-sm hover:underline">
+                Forgot Password
+              </Link>
+            </div>
           </form>
-          <br />
           <br />
           <div className="mt-4 flex items-center max-sm:justify-center">
             <span className="text-gray-700 text-sm">Or login with </span>

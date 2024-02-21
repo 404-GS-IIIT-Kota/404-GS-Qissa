@@ -147,15 +147,15 @@ const getProfile = async (req, res, next) => {
 };
 
 const forgotPassword = async (req, res, next) => {
-  const { email } = req.body;
+  const { userName } = req.body;
 
-  if (!email) {
-    return next(new AppError("Email is required", 400));
+  if (!userName) {
+    return next(new AppError("userName is required", 400));
   }
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ userName });
   if (!user) {
-    return next(new AppError("Email is not registered", 400));
+    return next(new AppError("User name is not registered", 400));
   }
 
   const resetToken = crypto.randomBytes(20).toString("hex");

@@ -7,6 +7,7 @@ import LegalAdvocacyHub from "./pages/LegalAdvocacyHub";
 import Notifications from "./pages/Notifications";
 import Profile from "./pages/Profile";
 import Profile1 from "./pages/Profile1"
+import ForgotPassword from "./pages/ForgotPassword";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile1" element={<Profile1 />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </Router>
   );
