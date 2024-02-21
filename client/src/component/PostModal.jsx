@@ -5,7 +5,7 @@ import DropZonePost from "./DropZonePost";
 const PostModal = ({ onClose }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl flex justify-center items-center relative left-32 top-8 w-3/5 h-4/6">
+      <div className="bg-white rounded-2xl flex justify-center items-center relative left-32 top-8 max-md:left-0 max-md:top-0 w-3/5 max-md:w-11/12 h-4/6">
         {/* Add your content for the modal */}
 
         <div className="w-4/5 h-full py-5">

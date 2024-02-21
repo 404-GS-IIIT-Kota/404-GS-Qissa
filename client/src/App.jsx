@@ -4,7 +4,7 @@ import SignUp from "./pages/Signup";
 import BeautifulExperiences from "./pages/BeautifulExperiences";
 import ComingOutStories from "./pages/ComingOutStories";
 import LegalAdvocacyHub from "./pages/LegalAdvocacyHub";
-import Notifications from "./pages/Notifications";
+import Happenings from "./pages/Happenings";
 import Profile from "./pages/Profile";
 import Profile1 from "./pages/Profile1"
 import ForgotPassword from "./pages/ForgotPassword";
@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/legal-advocacy-hub" element={<LegalAdvocacyHub />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile1" element={<Profile1 />} />
-        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/happenings" element={<Happenings />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </Router>

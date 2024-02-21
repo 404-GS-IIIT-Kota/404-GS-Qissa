@@ -45,7 +45,7 @@ const Post = () => {
 
   return (
     <div
-      className="w-10/12 ml-24 absolute bottom-10 overflow-scroll no-scrollbar"
+      className="w-10/12 ml-24 max-md:ml-8 absolute bottom-10 overflow-scroll no-scrollbar"
       style={{ height: "28rem" }}
       onScroll={handleScroll}
     >
