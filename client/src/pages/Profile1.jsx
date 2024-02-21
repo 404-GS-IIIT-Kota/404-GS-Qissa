@@ -111,7 +111,7 @@ const Profile1 = () => {
                 </h1>
                 <p className="text-4xl max-md:text-lg text-gray-600 font-semibold">
                   {" "}
-                  / @aaryan9
+                  aaryan9
                 </p>
                 <p className="text-4xl max-md:text-lg text-gray-600">He/Him</p>
                 <p className="text-4xl max-md:text-lg text-gray-600">19</p>

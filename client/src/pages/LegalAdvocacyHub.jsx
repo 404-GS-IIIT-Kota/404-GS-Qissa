@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import AddBlog from "../component/AddBlog";
+import AddBlogWidget from "../component/AddBlogWidget";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const Modal = ({ closeModal }) => {
@@ -22,15 +24,24 @@ const Modal = ({ closeModal }) => {
   }, [closeModal]);
 
   return (
-    <div ref={modalRef} className="absolute top-[2rem] h-[10rem] w-[12rem] left-0 bg-white rounded-2xl mt-2 p-4 shadow-2xl flex flex-col justify-around items-center">
-      <Link to="/beautiful-experiences" className="block mb-2">Beautiful Experiences</Link>
-      <Link to="/coming-out-stories" className="block mb-2">Coming Out Stories</Link>
-      <Link to="/legal-advocacy-hub" className="block mb-2">Legal Advocacy Hub</Link>
+    <div
+      ref={modalRef}
+      className="absolute top-[2rem] h-[10rem] w-[12rem] left-0 bg-white rounded-2xl mt-2 p-4 shadow-2xl flex flex-col justify-around items-center"
+    >
+      <Link to="/beautiful-experiences" className="block mb-2">
+        Beautiful Experiences
+      </Link>
+      <Link to="/coming-out-stories" className="block mb-2">
+        Coming Out Stories
+      </Link>
+      <Link to="/legal-advocacy-hub" className="block mb-2">
+        Legal Advocacy Hub
+      </Link>
     </div>
   );
 };
 
-const BeautifulExperiences = () => {
+const LegalAdvocacyHub = () => {
   const [isopen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -54,7 +65,10 @@ const BeautifulExperiences = () => {
               <li className="hover:cursor-pointer">
                 <Link to="/notifications">Notifications</Link>
               </li>
-              <li onClick={toggleModal} className="hover:cursor-pointer relative">
+              <li
+                onClick={toggleModal}
+                className="hover:cursor-pointer relative"
+              >
                 Channels <ArrowDropDownIcon />
                 {modalOpen && <Modal closeModal={closeModal} />}
               </li>
@@ -86,27 +100,13 @@ const BeautifulExperiences = () => {
             </div>
           )}
         </div>
-        <div className="h-100 z-10 w-9/12 max-sm:w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-80 max-sm:left-[1rem]  gap-2 items-center justify-center">
+        <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 justify-center overflow-scroll no-scrollbar p-10">
+          <AddBlogWidget />
+          <AddBlog />
         </div>{" "}
-        <div className="h-100  w-60 bg-white rounded-2xl shadow-2xl absolute top-24  max-sm:hidden left-16 z-10">
-          <Link to="/profile">
-            <div className="rounded-full h-20 w-20 bg-red-500 relative top-5 left-5 hover:cursor-pointer">
-            </div>
-          </Link>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2 "></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-20 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-          <div className="h-5 w-4/5 relative top-40 left-5 bg-gray-400 mb-2"></div>
-        </div>
       </div>
     </>
   );
 };
 
-export default BeautifulExperiences;
+export default LegalAdvocacyHub;
