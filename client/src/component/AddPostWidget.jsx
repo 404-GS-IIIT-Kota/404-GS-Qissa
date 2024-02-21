@@ -12,12 +12,19 @@ const AddPostWidget = () => {
     setShowModal(false);
   };
 
+  let headerText = "Qissa"; // Default text
+  if (location.pathname === "/beautiful-experiences") {
+    headerText = "Beautiful Experiences";
+  } else if (location.pathname === "/coming-out-stories") {
+    headerText = "Coming Out Stories";
+  }
+
   return (
     <div className="w-full">
-        <div className="mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+        <div className="mb-4 border border-gray-200 rounded-2xl bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
           <div className="flex items-center justify-between px-3 py-2 dark:border-gray-600">
 
-            <h1 className="text-white">Something on your mind? </h1>
+            <h1 className="text-white">{headerText} </h1>
             <div className="flex space-x-1 rtl:space-x-reverse sm:ps-2">
               {/* Move the button inside this div */}
             </div>

@@ -54,7 +54,7 @@ const ComingOutStories = () => {
             </h1>
             <ul className="flex items-center gap-16 max-sm:hidden">
               <li className="hover:cursor-pointer">
-                <Link to="/notifications">Notifications</Link>
+                <Link to="/happenings">Happenings</Link>
               </li>
               <li onClick={toggleModal} className="hover:cursor-pointer relative">
                 Channels <ArrowDropDownIcon />
@@ -73,19 +73,25 @@ const ComingOutStories = () => {
             </button>
           </div>
           {isopen && (
-            <div className="bg-[#e1e1e1]  shadow-xl h-[150px] w-[150px] translate-x-[11.3rem] rounded-2xl p-4 z-30 translate-y-10">
-              <ul className="h-full flex flex-col gap-5 ">
-                <li className="hover:cursor-pointer">
-                  <Link to="/notifications">Notifications</Link>
-                </li>
-                <li className="hover:cursor-pointer">
-                  Channels <ArrowDropDownIcon />
-                </li>
-                <li className="hover:cursor-pointer ">
-                  <Link to="/profile">Profile</Link>
-                </li>
-              </ul>
-            </div>
+            <div className="bg-[#e1e1e1]  shadow-xl h-[230px] w-[200px] translate-x-[8rem] rounded-2xl p-4 z-30 translate-y-10">
+            <ul className="h-full flex flex-col gap-5 ">
+              <li className="hover:cursor-pointer">
+                <Link to="/happenings">Happenings</Link>
+              </li>
+              <li className="hover:cursor-pointer">
+                <Link to="/beautiful-experiences">Beautiful Experiences</Link>
+              </li>
+              <li className="hover:cursor-pointer">
+                <Link to="/coming-out-stories">Coming Out Stories</Link>
+              </li>
+              <li className="hover:cursor-pointer">
+                <Link to="/legal-advocacy-hub">Legal Advocacy Hub</Link>
+              </li>
+              <li className="hover:cursor-pointer ">
+                <Link to="/profile">Your Profile</Link>
+              </li>
+            </ul>
+          </div>
           )}
         </div>
         <div className="h-100 z-10 w-9/12 max-sm:w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-80 max-sm:left-[1rem]  gap-2 items-center justify-center">
