@@ -76,7 +76,7 @@ const BeautifulExperiences = () => {
             <div className="bg-[#e1e1e1]  shadow-xl h-[230px] w-[200px] translate-x-[8rem] rounded-2xl p-4 z-30 translate-y-10">
             <ul className="h-full flex flex-col gap-5 ">
               <li className="hover:cursor-pointer">
-                <Link to="/notifications">Happenings</Link>
+                <Link to="/happenings">Happenings</Link>
               </li>
               <li className="hover:cursor-pointer">
                 <Link to="/beautiful-experiences">Beautiful Experiences</Link>
