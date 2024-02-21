@@ -6,7 +6,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-// TODO: Make datepicker functional 
+// TODO: Make datepicker functional
 
 const SignUp = () => {
   const [post, setPost] = useState({
@@ -87,14 +87,25 @@ const SignUp = () => {
         className="w-80  max-sm:my-5 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
         style={{ width: "85%", height: "85%" }}
       >
-        <div className="w-full lg:w-1/2 p-6 flex flex-col items-center justify-center">
-          <img
-            src={toggle ? SignUpImage : form3}
-            alt="Placeholder"
-            className="w-full h-full object-cover rounded-xl"
-            style={{ width: "65%", height: "85%" }}
-          />
-        </div>
+        {toggle ? (
+          <div className="w-full lg:w-1/2 p-6 flex flex-col items-center justify-center">
+            <img
+              src={SignUpImage}
+              alt="Placeholder"
+              className="w-full h-full object-cover rounded-xl"
+              style={{ width: "65%", height: "85%" }}
+            />
+          </div>
+        ) : (
+          <div className="w-full lg:w-1/2 p-6 flex flex-col items-center justify-center">
+            <img
+              src={form3}
+              alt="Placeholder"
+              className="w-full h-full object-cover rounded-xl"
+              style={{ width: "85%", height: "85%" }}
+            />
+          </div>
+        )}
 
         <div className="w-full lg:w-1/2 p-6 bg-white rounded-lg flex flex-col justify-center">
           <h2 className="text-5xl font-bold mb-4 max-sm:text-center">
@@ -377,7 +388,7 @@ const SignUp = () => {
                     <option value="ZM">Zambia</option>
                     <option value="ZW">Zimbabwe</option>
                   </select>
-  
+
                   <div className="relative w-2/5 max-sm:w-full">
                     {/* <DatePicker
                       name="date"

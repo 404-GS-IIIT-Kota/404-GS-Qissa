@@ -44,18 +44,20 @@ const Signup = () => {
   };
 
   return (
-    <div className="sm:h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500">
+    <div className="h-screen max-sm:w-full flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500">
       <div
-        className="w-80  max-sm:my-5 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
+        className="w-100   max-sm:my-5 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
         style={{ width: "85%", height: "85%" }}
       >
-        <div className="w-full lg:w-1/2 p-6 flex flex-col items-center justify-center">
-          <img
-            src={placeholderImage}
-            alt="Placeholder"
-            className="w-full h-full object-cover rounded-xl"
-            style={{ width: "70%", height: "70%" }}
-          />
+        <div className="w-full   lg:w-1/2 p-6 flex flex-col items-center justify-center">
+          <div className="max-sm:w-[200px] max-sm:h-[200px] w-[70%] h-[70%]">
+            <img
+              src={placeholderImage}
+              alt="Placeholder"
+              className="w-full h-full rounded-xl"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
           <Link to="/signup" className="text-gray-700 hover:underline mt-4">
             Create a new account
           </Link>
@@ -101,7 +103,10 @@ const Signup = () => {
               >
                 Log In
               </button>
-              <Link to="/forgot-password" className="text-gray-700 sm:ml-10 text-sm hover:underline">
+              <Link
+                to="/forgot-password"
+                className="text-gray-700 sm:ml-10 text-sm hover:underline"
+              >
                 Forgot Password
               </Link>
             </div>

@@ -17,7 +17,7 @@ const ForgotPassword = () => {
 
   return (
     <div>
-      <div className="sm:h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500">
+      <div className="h-screen max-sm:w-full  flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-500">
         <div
           className="w-80  max-sm:my-5 h-80 bg-white mx-auto flex flex-col lg:flex-row rounded-2xl shadow-2xl max-lg:max-h-max"
           style={{ width: "85%", height: "85%" }}
@@ -46,20 +46,25 @@ const ForgotPassword = () => {
               </div>
 
               <div className="flex max-md:flex-col max-md:justify-center max-md:items-center gap-5 w-full">
-              <div className="flex flex-col w-2/5 max-md:w-full sm:flex-row items-center">
-                <button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
-                >
-                  Submit
-                </button>
-              </div>
-              <div className="flex flex-col w-2/5 max-md:w-full sm:w-2/5 sm:flex-row items-center"> <Link className="w-full" to="/signin"><button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
-                >
-                  Back to Signin
-                </button></Link></div>
+                <div className="flex flex-col w-2/5 max-md:w-full sm:flex-row items-center">
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
+                  >
+                    Submit
+                  </button>
+                </div>
+                <div className="flex flex-col w-2/5 max-md:w-full sm:w-2/5 sm:flex-row items-center">
+                  {" "}
+                  <Link className="w-full" to="/signin">
+                    <button
+                      type="submit"
+                      className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
+                    >
+                      Back to Signin
+                    </button>
+                  </Link>
+                </div>
               </div>
             </form>
             {showNotification && (
