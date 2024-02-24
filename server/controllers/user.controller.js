@@ -9,7 +9,7 @@ import crypto from "crypto"; // Add crypto module import for generating hash
 const cookieOptions = {
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7days
   httpOnly: true,
-  secure: true,
+  // secure: true,
 };
 
 const register = async (req, res, next) => {
@@ -68,10 +68,6 @@ const register = async (req, res, next) => {
 
     user.password = undefined;
 
-    const token = await user.generateJWTToken();
-
-    res.cookie("token", token, cookieOptions);
-
     res.status(201).json({
       success: true,
       message: "User registered successfully",
@@ -95,13 +91,12 @@ const login = async (req, res, next) => {
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return next(new AppError("userName or password does not match", 400));
     }
+    const id = user._id.toString();
 
-    const token = await user.generateJWTToken();
+    const token = jwt.sign({ _id: id }, process.env.JWT_SECRET);
     user.password = undefined;
 
-    res.cookie("token", token, cookieOptions); // Save token in cookie
-    res.cookie("username", user.userName, cookieOptions); // Save username in cookie
-
+    res.cookie("jwt", token, cookieOptions); // Save token in cookie
     res.status(200).json({
       success: true,
       message: "User logged in successfully",
@@ -113,7 +108,7 @@ const login = async (req, res, next) => {
 };
 
 const logout = (req, res) => {
-  res.cookie("token", null, {
+  res.cookie("jwt", null, {
     secure: true,
     maxAge: 0,
     httpOnly: true,
