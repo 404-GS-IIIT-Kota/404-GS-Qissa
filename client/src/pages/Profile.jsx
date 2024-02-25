@@ -51,6 +51,10 @@ const Profile = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
+  //profile m user data laayenge boss, main website m demo h usme dikhara api call likhi he nhi hai bhai tumne kaise dikhau krke, yes abhi profile wale k liye nai hua hain, no worries boss, aapne jo message kia h waise karlenge
+
+  // const cookies = localStorage.getItem("cookies"); aaise cookies mil jayegii isko header me set krke call krna
+  // ok boss hum middleware se verify karare h
 
   const items = [1, 2, 3, 4];
 

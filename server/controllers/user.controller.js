@@ -96,13 +96,13 @@ const login = async (req, res, next) => {
 
     const token = jwt.sign({ _id: id }, process.env.JWT_SECRET);
     user.password = undefined;
-
-    res.cookie("jwt", token, cookieOptions); // Save token in cookie
-    console.log("cookie", req.cookies);
+    // res.cookie("jwt", token, cookieOptions); // Save token in cookie
+    // console.log("cookie", req.cookies);
     res.status(200).json({
       success: true,
       message: "User logged in successfully",
       user,
+      cookies: token,
     });
   } catch (error) {
     return next(new AppError(error.message, 500));
@@ -124,6 +124,9 @@ const logout = (req, res) => {
 
 const getProfile = async (req, res, next) => {
   try {
+    const token = req.headers.cookies;
+
+    // ab is token ko jaise yha backend me use krna hai waise use kro and frontend se jab call kro toh
     const userName = req.cookies.username;
     const user = await User.findOne({ userName }).select(
       "userName birthday bio country gender pronoun"

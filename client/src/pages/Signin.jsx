@@ -29,13 +29,20 @@ const Signup = () => {
     const { userName, password } = signin;
 
     try {
-      const { user } = await axios.post(
+      const response = await axios.post(
         "http://localhost:6004/api/v1/user/login",
         {
           userName,
           password,
         }
       );
+      console.log(response.data);
+      if (response.data.message == "User logged in successfully") {
+        // const user = response.user;
+        localStorage.setItem("cookies", response.data.cookies);
+        console.log(response.data.cookies);
+        // redirect ka callback yha handle kr lena
+      }
     } catch (e) {
       console.log(e);
     }
