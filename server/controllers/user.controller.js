@@ -5,6 +5,7 @@ import sendEmail from "../utils/sendEmail.js";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import crypto from "crypto"; // Add crypto module import for generating hash
+import jwt from "jsonwebtoken";
 
 const cookieOptions = {
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7days
@@ -97,6 +98,7 @@ const login = async (req, res, next) => {
     user.password = undefined;
 
     res.cookie("jwt", token, cookieOptions); // Save token in cookie
+    console.log("cookie", req.cookies);
     res.status(200).json({
       success: true,
       message: "User logged in successfully",

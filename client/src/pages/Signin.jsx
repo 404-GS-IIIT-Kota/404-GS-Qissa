@@ -10,7 +10,7 @@ import axios from "axios";
 
 const Signup = () => {
   const [signin, setSignin] = useState({
-    name: "",
+    userName: "",
     password: "",
   });
 
@@ -22,17 +22,17 @@ const Signup = () => {
     e.preventDefault();
 
     setSignin({
-      name: "",
+      userName: "",
       password: "",
     });
 
-    const { name, password } = signin;
+    const { userName, password } = signin;
 
     try {
       const { user } = await axios.post(
         "http://localhost:6004/api/v1/user/login",
         {
-          name,
+          userName,
           password,
         }
       );
@@ -74,9 +74,9 @@ const Signup = () => {
               <PersonIcon className="text-black-800 mr-2" />
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={signin.name}
+                id="userName"
+                name="userName"
+                value={signin.userName}
                 onChange={handleInput}
                 placeholder="Username"
                 className="w-3/5 max-sm:w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
