@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PostPlaceholder from "../assets/postPlaceholder.jpg";
+import PostPlaceholder from "../assets/beautiful-experiences_placeholder.jpg";
 import PostItem from "./PostItem";
 import AddComment from "./AddComment";
 

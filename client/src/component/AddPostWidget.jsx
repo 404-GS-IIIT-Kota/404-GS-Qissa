@@ -21,7 +21,7 @@ const AddPostWidget = () => {
 
   return (
     <div className="w-full">
-        <div className="mb-4 border border-gray-200 rounded-2xl bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+        <div className="mb-4 border rounded-2xl border-gray-200 rounded-2xl bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
           <div className="flex items-center justify-between px-3 py-2 dark:border-gray-600">
 
             <h1 className="text-white">{headerText} </h1>
