@@ -36,7 +36,7 @@ const AddComment = ({ postId }) => {
           <button
             type="button"
             onClick={handleEmojiClick}
-            className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-400 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+            className="p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 hover:text-white hover:bg-gray-600"
           >
             <svg
               className="w-5 h-5"
@@ -60,7 +60,7 @@ const AddComment = ({ postId }) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows="1"
-            className="block mx-4 resize-none p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block mx-4 resize-none p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Add a comment..."
           ></textarea>
           <button

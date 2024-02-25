@@ -6,10 +6,9 @@ const PostItem = ({ post }) => {
     <div className="w-full h-full max-md:mt-0 ">
       <div className="flex flex-col md:flex-row">
         {" "}
-        {/* Changed flex to flex-col on max-md */}
         {/* A POST */}
         <div className="md:w-1/2 h-full rounded-bl-lg rounded-tl-lg bg-gray-300 flex items-center justify-center">
-          <div className="w-[100%] h-full">
+          <div className="w-[90%] h-full">
             <img
               src={post.image}
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
