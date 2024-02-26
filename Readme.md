@@ -80,6 +80,24 @@ Transparent communication keeps users informed, fostering a collaborative journe
 
 [Qissa PDF File](./Qissa.pdf)
 
+## Installation Guide
+
+1. Running frontend 
+
+``` bash
+cd client
+npm i
+npm run dev
+```
+
+2. Running backend 
+
+``` bash
+cd server
+npm i
+npm run dev
+```
+
 ## Team 404
 
     1. Aaryan Anil Kumar Singh
