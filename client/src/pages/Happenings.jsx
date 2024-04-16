@@ -43,8 +43,10 @@ const Modal = ({ closeModal }) => {
 const Happenings = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [notificationData, setNotificationData] = useState([]); // State to hold notification data
-  const [apiCalls, setApiCalls] = useState(0); // State to track API calls
+  const [notificationData, setNotificationData] = useState([]);
+  const [apiCalls, setApiCalls] = useState(0);
+  const [lastApiCallTime, setLastApiCallTime] = useState(null);
+  const [tokens, setTokens] = useState(32); // Initial tokens per day
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -56,9 +58,18 @@ const Happenings = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (apiCalls >= 5) {
-        // Check if API call limit reached
-        console.log("API call limit reached for this session");
+      if (tokens <= 0) {
+        console.log("API call limit reached for today");
+        return;
+      }
+
+      const currentTime = new Date();
+      if (
+        lastApiCallTime &&
+        currentTime - lastApiCallTime < 24 * 60 * 60 * 1000
+      ) {
+        // Check if 24 hours have passed since the last API call
+        console.log("24 hours have not passed since last API call");
         return;
       }
 
@@ -74,17 +85,19 @@ const Happenings = () => {
 
       try {
         const response = await axios.request(options);
-        setNotificationData(response.data); // Update state with fetched data
-        setApiCalls(apiCalls + 1); // Increment API call count
+        setNotificationData(response.data);
+        setApiCalls(apiCalls + 1);
+        setTokens(tokens - 1);
+        setLastApiCallTime(currentTime);
       } catch (error) {
         console.error(error);
       }
     };
 
-    if (apiCalls < 5) {
+    if (apiCalls < 32 && tokens > 0) {
       fetchData();
     }
-  }, [apiCalls]); // Trigger effect when API call count changes
+  }, [apiCalls, tokens, lastApiCallTime]);
 
   return (
     <>
@@ -119,24 +132,24 @@ const Happenings = () => {
           </div>
           {isOpen && (
             <div className="bg-[#e1e1e1]  shadow-xl h-[230px] w-[200px] translate-x-[8rem] rounded-2xl p-4 z-30 translate-y-10">
-            <ul className="h-full flex flex-col gap-5 ">
-              <li className="hover:cursor-pointer">
-                <Link to="/happenings">Happenings</Link>
-              </li>
-              <li className="hover:cursor-pointer">
-                <Link to="/beautiful-experiences">Beautiful Experiences</Link>
-              </li>
-              <li className="hover:cursor-pointer">
-                <Link to="/coming-out-stories">Coming Out Stories</Link>
-              </li>
-              <li className="hover:cursor-pointer">
-                <Link to="/legal-advocacy-hub">Legal Advocacy Hub</Link>
-              </li>
-              <li className="hover:cursor-pointer ">
-                <Link to="/profile">Your Profile</Link>
-              </li>
-            </ul>
-          </div>
+              <ul className="h-full flex flex-col gap-5 ">
+                <li className="hover:cursor-pointer">
+                  <Link to="/happenings">Happenings</Link>
+                </li>
+                <li className="hover:cursor-pointer">
+                  <Link to="/beautiful-experiences">Beautiful Experiences</Link>
+                </li>
+                <li className="hover:cursor-pointer">
+                  <Link to="/coming-out-stories">Coming Out Stories</Link>
+                </li>
+                <li className="hover:cursor-pointer">
+                  <Link to="/legal-advocacy-hub">Legal Advocacy Hub</Link>
+                </li>
+                <li className="hover:cursor-pointer ">
+                  <Link to="/profile">Your Profile</Link>
+                </li>
+              </ul>
+            </div>
           )}
         </div>
         <div className="h-100 z-10 w-11/12 bg-white rounded-2xl shadow-2xl absolute top-24 left-[1rem] md:left-10 xl:left-16 flex justify-center items-center">
