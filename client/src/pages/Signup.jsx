@@ -19,7 +19,7 @@ const SignUp = () => {
     gender: "",
     pronoun: "",
     bio: "",
-    // date: "",
+    date: "",
   });
   const handleInput = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
@@ -38,7 +38,7 @@ const SignUp = () => {
       gender: "",
       pronoun: "",
       bio: "",
-      // date: "",
+      date: "",
     });
 
     const {
@@ -51,7 +51,7 @@ const SignUp = () => {
       gender,
       pronoun,
       bio,
-      // date,
+      date,
     } = post;
 
     try {
@@ -67,7 +67,7 @@ const SignUp = () => {
           gender,
           pronoun,
           bio,
-          // date,
+          date,
         }
       );
     } catch (e) {

@@ -25,7 +25,7 @@ const register = async (req, res, next) => {
       gender,
       pronoun,
       bio,
-      // birthday
+      birthday,
     } = req.body;
 
     const userExists = await User.findOne({ email });
@@ -50,6 +50,7 @@ const register = async (req, res, next) => {
       gender,
       pronoun,
       bio,
+      birthday,
       // avatar: {
       //   public_id: email,
       //   secure_url:
@@ -92,11 +93,11 @@ const login = async (req, res, next) => {
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return next(new AppError("userName or password does not match", 400));
     }
-    const id = user._id.toString();
+    // const id = user._id.toString();
 
-    const token = jwt.sign({ _id: id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
     user.password = undefined;
-    // res.cookie("jwt", token, cookieOptions); // Save token in cookie
+    res.cookie("jwt", token, cookieOptions).status(201).json("ok"); // Save token in cookie
     // console.log("cookie", req.cookies);
     res.status(200).json({
       success: true,
@@ -124,13 +125,13 @@ const logout = (req, res) => {
 
 const getProfile = async (req, res, next) => {
   try {
-    const token = req.headers.cookies;
-
-    // ab is token ko jaise yha backend me use krna hai waise use kro and frontend se jab call kro toh
-    const userName = req.cookies.username;
-    const user = await User.findOne({ userName }).select(
+    const jwt = req.headers.cookies; // check if cookie is in headers or some other place
+    const jwtPayload = jwt.verify(jwt, process.env.JWT_SECRET);
+    const userId = jwtPayload.userId;
+    const user = await User.findById(userId).select(
       "userName birthday bio country gender pronoun"
     );
+    // ab is token ko jaise yha backend me use krna hai waise use kro and frontend se jab call kro toh
 
     if (!user) {
       return next(new AppError("User not found", 404));

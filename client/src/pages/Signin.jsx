@@ -21,11 +21,6 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setSignin({
-      userName: "",
-      password: "",
-    });
-
     const { userName, password } = signin;
 
     try {
@@ -46,6 +41,10 @@ const Signup = () => {
     } catch (e) {
       console.log(e);
     }
+    setSignin({
+      userName: "",
+      password: "",
+    });
 
     console.log(signin);
   };
