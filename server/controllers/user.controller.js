@@ -1,5 +1,6 @@
 import AppError from "../utils/error.util.js";
 import { User } from "../models/user.model.js";
+import { Post } from "../models/user.model.js";
 import cloudinary from "cloudinary";
 import sendEmail from "../utils/sendEmail.js";
 import validator from "validator";
@@ -123,14 +124,37 @@ const logout = (req, res) => {
   });
 };
 
+const post = async (req, res, next) => {
+  try {
+    const caption = req.body.caption;
+    const url = req.body.url; //cloudinary manage
+    const channel = req.body.channel;
+    const jwt = req.headers.cookies; // check if cookie is in headers or some other place
+    const jwtPayload = jwt.verify(jwt, process.env.JWT_SECRET);
+    const postedBy = jwtPayload.userId;
+    await Post.create({ caption, url, channel, postedBy });
+  } catch (error) {
+    return next(new AppError("Failed to post", 500));
+  }
+};
+
 const getProfile = async (req, res, next) => {
   try {
     const jwt = req.headers.cookies; // check if cookie is in headers or some other place
     const jwtPayload = jwt.verify(jwt, process.env.JWT_SECRET);
     const userId = jwtPayload.userId;
-    const user = await User.findById(userId).select(
-      "userName birthday bio country gender pronoun"
-    );
+    const user = await User.findById(userId)
+      .select("userName birthday bio country gender pronoun posts") // Include the 'posts' field
+      .populate({
+        path: "posts",
+        select: "url caption likes comments channel postedAt",
+        populate: {
+          path: "comments",
+          select: "text commentedBy commentedAt",
+        },
+        options: { sort: { postedAt: -1 } }, // Sort posts by postedAt field in descending order
+      });
+
     // ab is token ko jaise yha backend me use krna hai waise use kro and frontend se jab call kro toh
 
     if (!user) {
@@ -144,6 +168,44 @@ const getProfile = async (req, res, next) => {
     });
   } catch (error) {
     return next(new AppError("Failed to fetch profile detail", 500));
+  }
+};
+
+const comment = async (req, res, next) => {
+  try {
+    const { postId } = req.params;
+    const { text } = req.body;
+    const jwt = req.headers.cookies; // check if cookie is in headers or some other place
+    const jwtPayload = jwt.verify(jwt, process.env.JWT_SECRET);
+    const userId = jwtPayload.userId;
+    const user = await User.findById(userId).select("userName");
+    const newComment = new Comment({
+      text,
+      commentedBy: user.userName,
+    });
+
+    await newComment.save();
+
+    const post = await Post.findById(postId);
+    post.comments.push(newComment);
+
+    await post.save();
+    res.status(200).json({
+      success: true,
+      message: "Commented successfully",
+    });
+  } catch (error) {
+    return next(new AppError("Failed to comment", 500));
+  }
+};
+
+const postPage = async (req, res, next) => {
+  try {
+    const channel = req.body.channel;
+    const posts = await Post.find({ channel });
+    res.json({ success: true, posts });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -300,6 +362,9 @@ export {
   login,
   logout,
   getProfile,
+  post,
+  postPage,
+  comment,
   forgotPassword,
   resetPassword,
   changePassword,

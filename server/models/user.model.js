@@ -80,11 +80,11 @@ const commentSchema = new Schema({
     type: String,
     required: true,
   },
-  postedBy: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+  commentedBy: {
+    type: String,
+    required: true,
   },
-  postedAt: {
+  commentedAt: {
     type: Date,
     default: Date.now,
   },
@@ -105,10 +105,19 @@ const postSchema = new Schema(
     },
     comments: {
       type: [commentSchema],
+      default: [],
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+    channel: {
+      type: String,
+      required: true,
+    },
+    postedBy: {
+      type: String,
+      required: true,
+    },
+    postedAt: {
+      type: Date,
+      default: Date.now,
     },
   },
   {
