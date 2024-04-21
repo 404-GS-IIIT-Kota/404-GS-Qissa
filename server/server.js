@@ -11,7 +11,7 @@ v2.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const PORT = process.env.PORT || 6004;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, async () => {
   // Connect to DB
