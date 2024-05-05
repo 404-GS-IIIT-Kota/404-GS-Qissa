@@ -105,15 +105,16 @@ const Signup = () => {
             <div className="flex flex-col sm:flex-row items-center">
               <Link
                 to="/beautiful-experiences"
-                 className="w-full sm:w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
+                className="w-full sm:w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
               >
                 <button
                   type="submit"
-                  className="text-center"
+                  className="text-center flex items-center justify-center"
                 >
                   Log In
                 </button>
-                </Link>
+              </Link>
+
               <Link
                 to="/forgot-password"
                 className="text-gray-700 sm:ml-10 text-sm hover:underline"
