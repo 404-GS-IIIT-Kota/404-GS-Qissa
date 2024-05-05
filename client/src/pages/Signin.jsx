@@ -103,12 +103,16 @@ const Signup = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center">
-              <button
-                type="submit"
-                className="w-full sm:w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
+              <Link
+                to="/beautiful-experiences"
+                 className="w-full sm:w-2/5 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 mb-4 sm:mb-0"
               >
-                Log In
-              </button>
+                <button
+                  type="submit"
+                >
+                  Log In
+                </button>
+                </Link>
               <Link
                 to="/forgot-password"
                 className="text-gray-700 sm:ml-10 text-sm hover:underline"
