@@ -109,6 +109,7 @@ const Signup = () => {
               >
                 <button
                   type="submit"
+                  className="text-center"
                 >
                   Log In
                 </button>
